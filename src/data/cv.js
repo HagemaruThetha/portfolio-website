@@ -1,0 +1,191 @@
+// Content taken from the CV. Edit here, the page reads everything from this file.
+
+export const profile = {
+  name: 'Muhammad Zharif Zhafran Bin Ismadi',
+  shortName: 'Zharif Zhafran',
+  role: 'Junior Cloud Engineer',
+  location: 'Sentul, Kuala Lumpur',
+  email: 'zharifzhafran7@gmail.com',
+  phone: '+60 19-400 1889',
+  phoneHref: 'tel:+60194001889',
+  headline: 'Cloud engineer working across AWS, Linux and the data center floor',
+  intro:
+    'Junior Cloud Engineer at Stampede Solutions. I have supported AWS workloads in a regulated bank, racked servers in a data center and configured the network underneath.',
+  summary: [
+    'Aspiring Cloud Engineer with hands-on experience in AWS cloud operations, infrastructure deployment, cloud monitoring and network configuration in enterprise environments. Experienced supporting workloads using Amazon EC2, S3, RDS, VPC and containerized services, with exposure to remediation, cost optimization and day-to-day operations guided by security best practices.',
+    'Also experienced with Linux, Proxmox, web servers, MySQL, data center operations and network troubleshooting. Focused on building deeper expertise in cloud infrastructure, networking and cloud security.',
+  ],
+  focus: ['Cloud infrastructure', 'Networking', 'Cloud security'],
+}
+
+export const education = [
+  {
+    title: 'Bachelor of Computer Science (Hons.) Computer Networks',
+    school: 'Universiti Teknologi MARA (UiTM), Arau, Perlis',
+    period: '2024 – 2026',
+    cgpa: '3.39',
+  },
+  {
+    title: 'Diploma in Computer Science',
+    school: 'Universiti Teknologi MARA (UiTM), Merbok, Kedah',
+    period: '2021 – 2024',
+    cgpa: '3.34',
+  },
+]
+
+export const experience = [
+  {
+    role: 'Junior Cloud Engineer',
+    company: 'Stampede Solutions Sdn. Bhd.',
+    period: 'Oct 2026 – Present',
+    current: true,
+    points: [
+      'Supported Linux server and virtual machine configuration in a Proxmox environment',
+      'Deployed and configured Apache and PHP for Volare’s internal web server',
+      'Assisted with MySQL server installation, configuration and troubleshooting',
+      'Deployed and executed hardening scripts on Linux servers to apply security configurations',
+      'Troubleshot server, web service and database configuration issues',
+    ],
+    stack: ['Linux', 'Proxmox', 'Apache', 'PHP', 'MySQL'],
+  },
+  {
+    role: 'Data Center Engineer',
+    company: 'Exabytes Sdn. Bhd.',
+    note: 'KYOUTH Development Programme',
+    period: 'Sep 2026 – Oct 2026',
+    points: [
+      'Performed data center operations, including server and network equipment installation',
+      'Installed and maintained server racks, structured cabling and network infrastructure',
+      'Monitored data center infrastructure and troubleshot hardware and network issues',
+      'Supported daily data center operations, infrastructure maintenance and technical documentation',
+    ],
+    stack: ['Server racks', 'Structured cabling', 'Monitoring'],
+  },
+  {
+    role: 'Cloud Support Intern',
+    company: 'Kenanga Investment Bank Berhad',
+    period: 'Mar 2026 – Jul 2026',
+    points: [
+      'Assisted in deploying and managing AWS services including Amazon EC2, Amazon S3 and containerized workloads within production environments',
+      'Performed remediation activities and incident prioritization in accordance with BNM RMiT guidelines to maintain the stability, security and availability of cloud infrastructure and services',
+      'Supported cloud cost management by reviewing service usage, monitoring resource consumption and assisting cost optimization so spending stayed within allocated budget limits',
+      'Maintained and monitored alarms and alerts on cloud workload services for operational reliability and timely issue response',
+      'Participated in AWS projects including cloud migrations, infrastructure upgrades and new service enablement',
+      'Updated and maintained infrastructure documentation including system configurations, asset inventories, operational procedures and deployment records',
+    ],
+    stack: ['EC2', 'S3', 'Containers', 'CloudWatch', 'BNM RMiT'],
+  },
+  {
+    role: 'Network Technician Intern',
+    company: 'Nurkamal Network Sdn. Bhd.',
+    period: 'Sep 2023 – Mar 2024',
+    points: [
+      'Performed structured cabling including UTP/Ethernet installation, trunking, cable tagging and cable management with half-moon holders and Krone blocks',
+      'Supported network device deployment by configuring access points, assigning IP addresses and setting VLANs across multiple floors',
+      'Conducted site surveys to locate and tag AP positions floor by floor, with accurate documentation for installation teams',
+      'Observed fiber optic splicing, 6-core fiber installation and PABX troubleshooting to understand enterprise communication systems',
+      'Installed and configured point-to-point wireless devices, including basic IP configuration and alignment readiness',
+      'Practiced core technician skills including RJ-45 crimping, faceplate installation, trunking fitting and onsite troubleshooting',
+    ],
+    stack: ['VLANs', 'Access points', 'Fiber', 'Point-to-point wireless'],
+  },
+]
+
+export const projects = [
+  {
+    id: 'aws-wordpress',
+    title: 'Cloud-based WordPress architecture on AWS',
+    area: 'Cloud infrastructure and architecture',
+    points: [
+      'Designed and deployed a WordPress architecture on AWS using Amazon EC2, Amazon RDS, Amazon S3, VPC, ALB, Route 53 and containerized workloads',
+      'Configured public and private subnets, security groups, a NAT Gateway and routing to support a secure and scalable deployment',
+      'Deployed and managed WordPress workloads, integrating database connectivity, storage services and networking configuration',
+      'Applied practices for high availability, service monitoring, cost awareness and basic security configuration',
+    ],
+    stack: ['EC2', 'RDS', 'S3', 'VPC', 'ALB', 'Route 53', 'Docker'],
+  },
+  {
+    id: 'cowrie',
+    title: 'Clustering analysis of Cowrie honeypot logs',
+    area: 'Final year project · Network security and data analysis',
+    points: [
+      'Collected and preprocessed Cowrie honeypot attack logs, performing session reconstruction and feature extraction in Python',
+      'Applied K-Means clustering with PCA to identify and visualize distinct attacker behavior patterns from network activity features',
+    ],
+    stack: ['Python', 'K-Means', 'PCA', 'Cowrie'],
+  },
+  {
+    id: 'elk',
+    title: 'Cybersecurity investigation using ELK SIEM',
+    area: 'Network security and data analysis',
+    points: [
+      'Performed SIEM log analysis to detect threats, identify root causes and deliver escalation reports that improved cyber incident response',
+    ],
+    stack: ['Elasticsearch', 'Logstash', 'Kibana'],
+  },
+]
+
+export const skills = [
+  {
+    group: 'Cloud and infrastructure',
+    items: [
+      { label: 'AWS', value: 'EC2, S3, RDS, VPC, Route 53, IAM, CloudWatch, ECS, ECR, Load Balancer' },
+      { label: 'Containers', value: 'Docker' },
+      { label: 'Cloud networking', value: 'Public and private subnets, NAT Gateway, route tables, security groups' },
+      { label: 'Deployment', value: 'WordPress deployment, cloud architecture design, basic cost optimization and monitoring' },
+    ],
+  },
+  {
+    group: 'Networking and security',
+    items: [
+      { label: 'Security testing', value: 'Kali Linux for security testing, basic penetration testing and network reconnaissance' },
+      { label: 'Physical network', value: 'Structured cabling, rack setup, patch panels, AP configuration and VLANs' },
+    ],
+  },
+  {
+    group: 'Productivity and documentation',
+    items: [
+      { label: 'Office', value: 'Microsoft Word, Excel, PowerPoint' },
+      { label: 'Writing', value: 'Documentation, logbooks and technical reports written clearly' },
+    ],
+  },
+]
+
+export const certifications = [
+  {
+    title: 'CCNA: Introduction to Networks',
+    issuer: 'Cisco',
+    points: [
+      'Built and configured basic LAN topologies, IPv4 and IPv6 addressing, subnetting and device configuration with Cisco IOS',
+    ],
+  },
+  {
+    title: 'CCNA: Switching, Routing and Wireless Essentials',
+    issuer: 'Cisco',
+    points: [
+      'Configured VLANs, inter-VLAN routing, static routing and basic OSPF in simulated enterprise environments',
+      'Implemented WLAN configuration and applied network security concepts such as port security and ACLs',
+    ],
+  },
+]
+
+export const accomplishments = [
+  {
+    title: 'UUM CTF',
+    result: '2nd place',
+    period: 'Apr 2025',
+    text: 'Problem solving across networking, Linux and cybersecurity challenges',
+  },
+  {
+    title: 'Cyber Quest CTF',
+    result: 'Completed',
+    period: 'Nov 2025',
+    text: 'Hands-on problem solving, threat analysis and collaborative cybersecurity challenges',
+  },
+]
+
+export const languages = [
+  { name: 'Malay', level: 'Native' },
+  { name: 'English', level: 'Expert' },
+  { name: 'Japanese', level: 'Beginner' },
+]
