@@ -2,7 +2,11 @@
 
 Personal portfolio of Muhammad Zharif Zhafran Bin Ismadi, Junior Cloud Engineer.
 
-Built with React and Vite. All content lives in `src/data/cv.js`, so updating the CV means editing that one file.
+Built with React, Vite and React Router. Pages: Home, About, Career, Projects, Skills and Contact (`src/pages/`).
+
+All content lives in `src/data/cv.js`, so updating the CV means editing that one file.
+
+Deployed on Netlify. `netlify.toml` sets the build and sends every route to `index.html` so links like `/career` load directly.
 
 ## Develop
 

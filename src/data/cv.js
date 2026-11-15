@@ -39,6 +39,7 @@ export const experience = [
     company: 'Stampede Solutions Sdn. Bhd.',
     period: 'Oct 2026 – Present',
     current: true,
+    kind: 'Work',
     points: [
       'Supported Linux server and virtual machine configuration in a Proxmox environment',
       'Deployed and configured Apache and PHP for Volare’s internal web server',
@@ -52,6 +53,7 @@ export const experience = [
     role: 'Data Center Engineer',
     company: 'Exabytes Sdn. Bhd.',
     note: 'KYOUTH Development Programme',
+    kind: 'Work',
     period: 'Sep 2026 – Oct 2026',
     points: [
       'Performed data center operations, including server and network equipment installation',
@@ -64,6 +66,7 @@ export const experience = [
   {
     role: 'Cloud Support Intern',
     company: 'Kenanga Investment Bank Berhad',
+    kind: 'Internship',
     period: 'Mar 2026 – Jul 2026',
     points: [
       'Assisted in deploying and managing AWS services including Amazon EC2, Amazon S3 and containerized workloads within production environments',
@@ -78,6 +81,7 @@ export const experience = [
   {
     role: 'Network Technician Intern',
     company: 'Nurkamal Network Sdn. Bhd.',
+    kind: 'Internship',
     period: 'Sep 2023 – Mar 2024',
     points: [
       'Performed structured cabling including UTP/Ethernet installation, trunking, cable tagging and cable management with half-moon holders and Krone blocks',
@@ -96,6 +100,7 @@ export const projects = [
     id: 'aws-wordpress',
     title: 'Cloud-based WordPress architecture on AWS',
     area: 'Cloud infrastructure and architecture',
+    summary: 'A WordPress site on AWS with public and private subnets, a load balancer, containers on EC2 and Amazon RDS',
     points: [
       'Designed and deployed a WordPress architecture on AWS using Amazon EC2, Amazon RDS, Amazon S3, VPC, ALB, Route 53 and containerized workloads',
       'Configured public and private subnets, security groups, a NAT Gateway and routing to support a secure and scalable deployment',
@@ -108,6 +113,7 @@ export const projects = [
     id: 'cowrie',
     title: 'Clustering analysis of Cowrie honeypot logs',
     area: 'Final year project · Network security and data analysis',
+    summary: 'K-Means clustering of honeypot sessions to group attacker behavior',
     points: [
       'Collected and preprocessed Cowrie honeypot attack logs, performing session reconstruction and feature extraction in Python',
       'Applied K-Means clustering with PCA to identify and visualize distinct attacker behavior patterns from network activity features',
@@ -118,6 +124,7 @@ export const projects = [
     id: 'elk',
     title: 'Cybersecurity investigation using ELK SIEM',
     area: 'Network security and data analysis',
+    summary: 'Threat detection and root-cause analysis from SIEM logs',
     points: [
       'Performed SIEM log analysis to detect threats, identify root causes and deliver escalation reports that improved cyber incident response',
     ],
@@ -188,4 +195,26 @@ export const languages = [
   { name: 'Malay', level: 'Native' },
   { name: 'English', level: 'Expert' },
   { name: 'Japanese', level: 'Beginner' },
+]
+
+export const stats = [
+  { value: '4', label: 'roles since 2023' },
+  { value: '3', label: 'projects' },
+  { value: '2', label: 'Cisco CCNA courses' },
+  { value: '3.39', label: 'degree CGPA' },
+]
+
+export const focusAreas = [
+  {
+    title: 'Cloud',
+    text: 'AWS operations in a regulated bank: EC2, S3 and containers in production, alarms, remediation under BNM RMiT and cost reviews',
+  },
+  {
+    title: 'Infrastructure',
+    text: 'Linux and Proxmox servers, Apache, PHP and MySQL, hardening scripts, and racking servers on a data center floor',
+  },
+  {
+    title: 'Network and security',
+    text: 'VLANs, access points and structured cabling, two CCNA courses, SIEM investigations and 2nd place at UUM CTF',
+  },
 ]
