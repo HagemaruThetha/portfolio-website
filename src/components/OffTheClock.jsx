@@ -34,7 +34,9 @@ function MatchTicket() {
       <div className="mticket__main">
         <header className="mticket__head">
           {crest ? (
-            <img className="mticket__crest" src={crest} alt="" width="40" height="40" />
+            <span className="mticket__crest">
+              <img src={crest} alt="Manchester United crest" width="40" height="40" />
+            </span>
           ) : (
             <span className="mticket__badge" aria-hidden="true">
               MU
@@ -82,6 +84,7 @@ function MatchTicket() {
           <span className="mticket__label">Ground</span>
           <span className="mticket__stub-value">{club.ground}</span>
         </div>
+        {crest && <img className="mticket__stub-crest" src={crest} alt="" width="88" height="88" />}
         <Barcode text={`${club.name}${profile.shortName}`} />
         <span className="mticket__chant">{club.chant}</span>
       </div>
