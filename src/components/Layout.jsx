@@ -68,7 +68,9 @@ function Footer() {
           </a>
         </div>
         <div className="site-footer__bottom">
-          <span>{profile.name}</span>
+          <span>
+            {profile.name} · <span className="footer-chant">Glory, glory, Man United</span>
+          </span>
           <nav className="footer-nav" aria-label="Footer">
             {allPages.map((p) => (
               <Link key={p.to} to={p.to}>

@@ -1,25 +1,31 @@
 /*
   Design tokens follow the unslop method by Damir Sokolovsky (@heydamir), CC BY 4.0.
-  Ink neutral ramp, one amber accent, 4px spacing grid, one easing curve.
+  Black and red palette (#000000, #830000, #BC0202, #FF0000), 4px spacing grid, one easing curve.
 */
 
 :root {
-  --bg-deep: #07080d;
-  --bg: #0b0d14;
-  --card: #11141c;
-  --raised: #1a1e28;
-  --line: rgba(238, 240, 245, 0.08);
-  --line-strong: rgba(238, 240, 245, 0.14);
-  --text: #eef0f5;
-  --text-2: #a3a9b8;
-  --muted: #7a8296;
+  /* Neutrals: black with a faint red tint */
+  --bg-deep: #000000;
+  --bg: #050303;
+  --card: #0e0808;
+  --raised: #1a0e0e;
+  --line: rgba(255, 236, 236, 0.08);
+  --line-strong: rgba(255, 236, 236, 0.15);
+  --text: #f6eeee;
+  --text-2: #b9aaaa;
+  --muted: #8f7f7f;
 
-  --accent: #e8a33d;
-  --accent-ink: #e8a33d;
-  --on-accent: #1a1204;
+  /* Reds from the palette */
+  --red-deep: #830000;
+  --red: #bc0202;
+  --red-bright: #ff0000;
+
+  --accent: var(--red);
+  --accent-ink: #ff4545;
+  --on-accent: #ffffff;
 
   /* Diagram tiers, the one place with several hues */
-  --tier-public: #e8a33d;
+  --tier-public: #ff4545;
   --tier-private: #43b8a6;
   --tier-data: #5ea4e6;
 
@@ -46,25 +52,6 @@
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-deep: #eceff4;
-    --bg: #f5f7fa;
-    --card: #ffffff;
-    --raised: #eceff4;
-    --line: rgba(17, 24, 39, 0.08);
-    --line-strong: rgba(17, 24, 39, 0.14);
-    --text: #111827;
-    --text-2: #4b5565;
-    --muted: #6b7487;
-    --accent-ink: #94590a;
-    --tier-public: #b7791f;
-    --tier-private: #1f8a7a;
-    --tier-data: #2f74b8;
-    color-scheme: light;
-  }
 }
 
 *,
@@ -261,11 +248,11 @@ a {
 .btn--primary {
   background: var(--accent);
   color: var(--on-accent);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .btn--primary:hover {
-  background: color-mix(in srgb, var(--accent) 88%, #fff);
+  background: #d40303;
 }
 
 .btn--secondary {
@@ -328,7 +315,7 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--red-bright);
   flex: none;
 }
 
@@ -460,12 +447,6 @@ a {
   border-radius: var(--r-panel);
   box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-}
-
-@media (prefers-color-scheme: light) {
-  .arch {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  }
 }
 
 .arch__bar {
@@ -1610,5 +1591,255 @@ a.contact-card:hover {
     justify-content: center;
     gap: 12px;
     padding-block: 24px;
+  }
+}
+
+/* Deep red band: the stats strip on the home page */
+
+.band--red {
+  background: var(--red-deep);
+  border-bottom: 0;
+}
+
+.band--red .stats dt {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.band--red .stats dd {
+  color: #ffffff;
+}
+
+/* Photo: a red rule under the frame */
+
+.hero__photo {
+  position: relative;
+}
+
+.hero__photo::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: -6px;
+  height: 6px;
+  border-radius: 0 0 4px 4px;
+  background: var(--red);
+}
+
+/* Off the clock */
+
+.personal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.personal-side {
+  display: grid;
+  gap: 16px;
+}
+
+.personal-card h3 {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.personal-card p {
+  margin-top: 8px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+.personal-card__jp {
+  display: block;
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text);
+}
+
+.personal-card__figure {
+  display: block;
+  margin-top: 12px;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--accent-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Supporter ticket: the Manchester United moment */
+
+.ticket {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  min-height: 100%;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(160deg, #bc0202 0%, #830000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ticket__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 28px;
+}
+
+.ticket__eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ticket__club {
+  margin-top: 8px;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.ticket__text {
+  margin-top: 8px;
+  max-width: 30rem;
+  color: rgba(255, 255, 255, 0.86);
+  text-wrap: pretty;
+}
+
+.ticket__fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.ticket__fields dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ticket__fields dd {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.ticket__stub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 12px;
+  background: rgba(0, 0, 0, 0.22);
+  border-left: 2px dashed rgba(255, 255, 255, 0.35);
+  text-align: center;
+}
+
+/* Punched notches where the stub tears off */
+.ticket__stub::before,
+.ticket__stub::after {
+  content: '';
+  position: absolute;
+  left: -11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.ticket__stub::before {
+  top: -10px;
+}
+
+.ticket__stub::after {
+  bottom: -10px;
+}
+
+.ticket__stub-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ticket__stub-value {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.ticket__chant {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-chant {
+  color: var(--accent-ink);
+}
+
+@media (max-width: 1024px) {
+  .personal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .ticket {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket__main {
+    padding: 24px;
+  }
+
+  .ticket__club {
+    font-size: 28px;
+  }
+
+  .ticket__fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ticket__stub {
+    flex-direction: row;
+    justify-content: space-between;
+    border-left: 0;
+    border-top: 2px dashed rgba(255, 255, 255, 0.35);
+    padding: 16px 24px;
+  }
+
+  .ticket__stub::before,
+  .ticket__stub::after {
+    top: -11px;
+    left: auto;
+    bottom: auto;
+  }
+
+  .ticket__stub::before {
+    left: -10px;
+  }
+
+  .ticket__stub::after {
+    right: -10px;
+  }
+
+  .ticket__stub-value {
+    font-size: 28px;
   }
 }

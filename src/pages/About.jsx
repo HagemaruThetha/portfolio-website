@@ -1,3 +1,4 @@
+import OffTheClock from '../components/OffTheClock.jsx'
 import { PageHeader, SectionTitle } from '../components/ui.jsx'
 import { education, languages, profile } from '../data/cv.js'
 
@@ -7,7 +8,7 @@ export default function About() {
       <PageHeader
         tag="01"
         title="About"
-        intro="Who I am, where I studied and the languages I work in"
+        intro="Who I am, where I studied, the languages I speak and what I do off the clock"
         meta={`${profile.role} · ${profile.location}`}
       />
 
@@ -69,6 +70,7 @@ export default function About() {
           </dl>
         </div>
       </section>
+      <OffTheClock />
     </>
   )
 }

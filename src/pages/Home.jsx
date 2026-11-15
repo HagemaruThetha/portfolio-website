@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Mail } from 'lucide-react'
 import photo1200 from '../assets/zharif-aws-1200.webp'
 import photo640 from '../assets/zharif-aws-640.webp'
+import OffTheClock from '../components/OffTheClock.jsx'
 import { SectionTitle } from '../components/ui.jsx'
 import { experience, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
 import { usePageTitle } from '../lib/site.js'
@@ -63,7 +64,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band" aria-label="At a glance">
+      <section className="band band--red" aria-label="At a glance">
         <div className="container">
           <dl className="stats">
             {stats.map((s) => (
@@ -117,6 +118,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <OffTheClock link={{ to: '/about', label: 'More about me' }} />
 
       <section className="band">
         <div className="container">

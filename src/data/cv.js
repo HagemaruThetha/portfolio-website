@@ -221,3 +221,26 @@ export const focusAreas = [
     text: 'VLANs, access points and structured cabling, two CCNA courses, SIEM investigations and 2nd place at UUM CTF',
   },
 ]
+
+export const personal = {
+  club: {
+    name: 'Manchester United',
+    text: 'Outside work I follow Manchester United. Whatever the result, matchdays are for the Reds.',
+    fields: [
+      { label: 'Club', value: 'Manchester United' },
+      { label: 'Ground', value: 'Old Trafford' },
+      { label: 'Watching from', value: 'Kuala Lumpur' },
+    ],
+    chant: 'Glory, glory, Man United',
+  },
+  ctf: {
+    title: 'Capture the flag',
+    figure: '2nd place',
+    text: 'At UUM CTF in April 2025, and I competed with a team at Cyber Quest CTF in November 2025',
+  },
+  japanese: {
+    title: 'Learning Japanese',
+    phrase: '日本語を勉強中',
+    text: 'Studying Japanese at beginner level, alongside native Malay and English',
+  },
+}
