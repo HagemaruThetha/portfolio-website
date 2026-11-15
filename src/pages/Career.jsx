@@ -20,7 +20,7 @@ const entries = [
     period: e.period,
     title: e.title,
     org: e.school,
-    points: [`CGPA ${e.cgpa} out of 4.00`],
+    points: e.cgpa ? [`CGPA ${e.cgpa} out of 4.00`] : [],
   })),
 ]
 
@@ -31,11 +31,18 @@ const groups = [
   { title: 'Education', kinds: ['Education'], icon: GraduationCap },
 ]
 
+const hasDetails = (entry) => entry.points.length > 0 || Boolean(entry.stack)
+
 function Entry({ entry, open, onToggle }) {
   const panelId = `entry-${entry.id.replace(/\W+/g, '-')}`
+  const expandable = hasDetails(entry)
+  const Head = expandable ? 'button' : 'div'
+  const headProps = expandable
+    ? { type: 'button', 'aria-expanded': open, 'aria-controls': panelId, onClick: onToggle }
+    : {}
   return (
-    <li className={`entry${open ? ' is-open' : ''}`}>
-      <button type="button" className="entry__head" aria-expanded={open} aria-controls={panelId} onClick={onToggle}>
+    <li className={`entry${open && expandable ? ' is-open' : ''}`}>
+      <Head className={`entry__head${expandable ? '' : ' is-static'}`} {...headProps}>
         <span className={`mono entry__period${entry.current ? ' is-current' : ''}`}>
           {entry.current && <span className="status-dot" aria-hidden="true" />}
           {entry.period}
@@ -45,9 +52,13 @@ function Entry({ entry, open, onToggle }) {
           <span className="muted-line">{entry.org}</span>
         </span>
         <span className="mono entry__kind">{entry.kind}</span>
-        <Plus className="entry__icon" size={16} strokeWidth={1.5} aria-hidden="true" />
-      </button>
-      {open && (
+        {expandable ? (
+          <Plus className="entry__icon" size={16} strokeWidth={1.5} aria-hidden="true" />
+        ) : (
+          <span aria-hidden="true" />
+        )}
+      </Head>
+      {open && expandable && (
         <div id={panelId} className="entry__body">
           <Points items={entry.points} />
           {entry.stack && <Stack items={entry.stack} />}
@@ -65,7 +76,7 @@ export default function Career() {
     filters.map((f) => [f, f === 'All' ? entries.length : entries.filter((e) => e.kind === f).length]),
   )
   const visible = entries.filter((e) => filter === 'All' || e.kind === filter)
-  const allOpen = visible.every((e) => openIds.has(e.id))
+  const allOpen = visible.filter(hasDetails).every((e) => openIds.has(e.id))
 
   const toggle = (id) =>
     setOpenIds((prev) => {
@@ -78,7 +89,7 @@ export default function Career() {
   const toggleAll = () =>
     setOpenIds((prev) => {
       const next = new Set(prev)
-      visible.forEach((e) => (allOpen ? next.delete(e.id) : next.add(e.id)))
+      visible.filter(hasDetails).forEach((e) => (allOpen ? next.delete(e.id) : next.add(e.id)))
       return next
     })
 
@@ -88,7 +99,7 @@ export default function Career() {
         tag="02"
         title="Career"
         intro="Work, internships and education, newest first"
-        meta={`${counts.Work} work roles · ${counts.Internship} internships · ${counts.Education} qualifications`}
+        meta={`${counts.Work} work roles · ${counts.Internship} internships · ${counts.Education} schools and universities`}
       />
 
       <section className="band band--tight">

@@ -34,6 +34,16 @@ export const education = [
     period: '2021 – 2024',
     cgpa: '3.34',
   },
+  {
+    title: 'Royal Military College (RMC)',
+    school: 'Maktab Tentera Diraja, Sungai Besi, Kuala Lumpur',
+    period: '2019 – 2020',
+  },
+  {
+    title: 'SMS Sultan Abdul Halim (Jenan)',
+    school: 'Sekolah Menengah Sains Sultan Abdul Halim, Jitra, Kedah',
+    period: '2016 – 2018',
+  },
 ]
 
 export const experience = [

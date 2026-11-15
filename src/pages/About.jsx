@@ -48,9 +48,11 @@ export default function About() {
                 </div>
                 <div className="row__meta">
                   <span className="mono">{e.period}</span>
-                  <span className="mono">
-                    CGPA <strong>{e.cgpa}</strong>/4.00
-                  </span>
+                  {e.cgpa && (
+                    <span className="mono">
+                      CGPA <strong>{e.cgpa}</strong>/4.00
+                    </span>
+                  )}
                 </div>
               </li>
             ))}

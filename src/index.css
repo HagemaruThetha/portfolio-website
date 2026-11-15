@@ -1153,6 +1153,14 @@ a {
   color: var(--accent-ink);
 }
 
+.entry__head.is-static {
+  cursor: default;
+}
+
+.entry__head.is-static:hover .entry__title {
+  color: var(--text);
+}
+
 .entry__kind,
 .role-link__kind {
   padding: 4px 8px;
