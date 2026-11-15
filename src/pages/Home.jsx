@@ -1,10 +1,26 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Mail } from 'lucide-react'
+import {
+  ArrowRight,
+  BadgeCheck,
+  Briefcase,
+  Cloud,
+  FolderGit2,
+  GraduationCap,
+  Layers,
+  Mail,
+  Server,
+  ShieldCheck,
+  Wrench,
+} from 'lucide-react'
 import photo1200 from '../assets/zharif-aws-1200.webp'
 import photo640 from '../assets/zharif-aws-640.webp'
 import OffTheClock from '../components/OffTheClock.jsx'
+import { TechIcon } from '../components/TechIcon.jsx'
 import { SectionTitle } from '../components/ui.jsx'
-import { experience, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
+import { experience, featuredStack, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
+
+const statIcons = [Briefcase, FolderGit2, BadgeCheck, GraduationCap]
+const focusIcons = [Cloud, Server, ShieldCheck]
 import { usePageTitle } from '../lib/site.js'
 
 export default function Home() {
@@ -67,19 +83,40 @@ export default function Home() {
       <section className="band band--red" aria-label="At a glance">
         <div className="container">
           <dl className="stats">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt>{s.label}</dt>
-                <dd>{s.value}</dd>
-              </div>
-            ))}
+            {stats.map((s, i) => {
+              const Icon = statIcons[i]
+              return (
+                <div key={s.label}>
+                  <dt>{s.label}</dt>
+                  <dd>{s.value}</dd>
+                  <Icon className="stats__icon" size={20} strokeWidth={1.5} aria-hidden="true" />
+                </div>
+              )
+            })}
           </dl>
         </div>
       </section>
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Recent roles" link={{ to: '/career', label: 'Full career' }} />
+          <SectionTitle title="My stack" icon={Layers} link={{ to: '/skills', label: 'Full stack and skills' }} />
+          <p className="band__intro">The tools I use at work and in my projects, from AWS to the server rack</p>
+          <ul className="stack-showcase">
+            {featuredStack.map((name) => (
+              <li key={name}>
+                <Link to="/skills" className="stack-card">
+                  <TechIcon name={name} size="xl" />
+                  <span>{name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="container">
+          <SectionTitle title="Recent roles" icon={Briefcase} link={{ to: '/career', label: 'Full career' }} />
           <ol className="role-list">
             {experience.slice(0, 3).map((job) => (
               <li key={job.role + job.company}>
@@ -102,12 +139,17 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Selected projects" link={{ to: '/projects', label: 'All projects' }} />
+          <SectionTitle title="Selected projects" icon={FolderGit2} link={{ to: '/projects', label: 'All projects' }} />
           <div className="project-grid">
             {projects.map((p) => (
               <Link key={p.id} to={`/projects#${p.id}`} className="card project-tile">
                 <span className="project__area">{p.area}</span>
                 <span className="project-tile__title">{p.title}</span>
+                <span className="project-tile__logos" aria-hidden="true">
+                  {p.stack.slice(0, 5).map((t) => (
+                    <TechIcon key={t} name={t} />
+                  ))}
+                </span>
                 <span className="muted-line">{p.summary}</span>
                 <span className="project-tile__more">
                   Read more
@@ -123,15 +165,21 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="What I work on" link={{ to: '/skills', label: 'All skills' }} />
+          <SectionTitle title="What I work on" icon={Wrench} link={{ to: '/skills', label: 'All skills' }} />
           <div className="focus-grid">
-            {focusAreas.map((f, i) => (
+            {focusAreas.map((f, i) => {
+              const Icon = focusIcons[i]
+              return (
               <article key={f.title} className="focus">
-                <span className="mono">{String(i + 1).padStart(2, '0')}</span>
+                <span className="focus__head">
+                  <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+                  <span className="mono">{String(i + 1).padStart(2, '0')}</span>
+                </span>
                 <h3>{f.title}</h3>
                 <p>{f.text}</p>
               </article>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

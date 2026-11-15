@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
+import { Briefcase, GraduationCap, Plus } from 'lucide-react'
 import { PageHeader, Points, SectionTitle, Stack } from '../components/ui.jsx'
 import { education, experience } from '../data/cv.js'
 
@@ -27,8 +27,8 @@ const entries = [
 const filters = ['All', 'Work', 'Internship', 'Education']
 
 const groups = [
-  { title: 'Professional', kinds: ['Work', 'Internship'] },
-  { title: 'Education', kinds: ['Education'] },
+  { title: 'Professional', kinds: ['Work', 'Internship'], icon: Briefcase },
+  { title: 'Education', kinds: ['Education'], icon: GraduationCap },
 ]
 
 function Entry({ entry, open, onToggle }) {
@@ -118,7 +118,7 @@ export default function Career() {
             if (!items.length) return null
             return (
               <div key={g.title} className="entry-group">
-                <SectionTitle title={g.title} count={items.length} />
+                <SectionTitle title={g.title} icon={g.icon} count={items.length} />
                 <ol className="entries">
                   {items.map((e) => (
                     <Entry key={e.id} entry={e} open={openIds.has(e.id)} onToggle={() => toggle(e.id)} />

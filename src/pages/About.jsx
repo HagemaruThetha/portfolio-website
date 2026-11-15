@@ -1,3 +1,4 @@
+import { GraduationCap, Languages, User } from 'lucide-react'
 import OffTheClock from '../components/OffTheClock.jsx'
 import { PageHeader, SectionTitle } from '../components/ui.jsx'
 import { education, languages, profile } from '../data/cv.js'
@@ -14,7 +15,7 @@ export default function About() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Summary" />
+          <SectionTitle title="Summary" icon={User} />
           <div className="split__body">
             {profile.summary.map((p) => (
               <p key={p.slice(0, 24)} className="lead">
@@ -37,7 +38,7 @@ export default function About() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Education" count={education.length} />
+          <SectionTitle title="Education" icon={GraduationCap} count={education.length} />
           <ol className="split__body rows">
             {education.map((e) => (
               <li key={e.title} className="row">
@@ -59,7 +60,7 @@ export default function About() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Languages" count={languages.length} />
+          <SectionTitle title="Languages" icon={Languages} count={languages.length} />
           <dl className="split__body langs">
             {languages.map((l) => (
               <div key={l.name}>

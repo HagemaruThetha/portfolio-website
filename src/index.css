@@ -1843,3 +1843,247 @@ a.contact-card:hover {
     font-size: 28px;
   }
 }
+
+/* Logos and symbols */
+
+.tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: 4px;
+}
+
+.tech-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Brand logos sit on a light tile so dark marks stay visible on black */
+.tech-icon--logo {
+  background: #ffffff;
+}
+
+.tech-icon--symbol {
+  background: color-mix(in srgb, var(--red) 22%, var(--raised));
+  color: #ffd6d6;
+}
+
+.tech-icon--sm {
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+}
+
+.tech-icon--md {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.tech-icon--lg {
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.tech-icon--xl {
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.stack li {
+  gap: 6px;
+  padding-left: 4px;
+  height: 28px;
+}
+
+.section-title__icon {
+  align-self: center;
+  color: var(--accent-ink);
+}
+
+.with-logo,
+.with-symbol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.with-symbol svg {
+  color: var(--accent-ink);
+  flex: none;
+}
+
+.project__area.with-symbol {
+  gap: 6px;
+}
+
+.band__intro {
+  margin: -12px 0 24px;
+  color: var(--text-2);
+}
+
+/* Home: stack showcase */
+
+.stack-showcase {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stack-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color var(--fast) var(--ease),
+    border-color var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+
+.stack-card:hover {
+  background: var(--raised);
+  border-color: color-mix(in srgb, var(--red) 60%, transparent);
+  transform: translateY(-2px);
+}
+
+/* Skills: grouped logo tiles */
+
+.stack-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stack-group {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+}
+
+.stack-group:first-child {
+  grid-column: 1 / -1;
+}
+
+.stack-group h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.tech-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 16px 12px;
+  margin-top: 16px;
+}
+
+.tech-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* Small details that pick up icons */
+
+.stats__icon {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 4px;
+}
+
+.focus__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-ink);
+}
+
+.project-tile__logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.project-tile__logos .tech-icon--sm {
+  width: 24px;
+  height: 24px;
+  padding: 3px;
+}
+
+.ticket__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ticket__crest {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex: none;
+}
+
+@media (max-width: 1024px) {
+  .stack-showcase {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stack-groups {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .stack-showcase {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .stack-card {
+    padding: 16px 8px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .tech-icon--xl {
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+  }
+
+  .stack-group {
+    padding: 20px 16px;
+  }
+
+  .tech-tiles {
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card:hover {
+    transform: none;
+  }
+}

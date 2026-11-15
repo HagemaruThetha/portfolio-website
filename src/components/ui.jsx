@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { usePageTitle } from '../lib/site.js'
+import { TechIcon } from './TechIcon.jsx'
 
 export function CableTag({ children }) {
   return (
@@ -27,10 +28,11 @@ export function PageHeader({ tag, title, intro, meta, action }) {
   )
 }
 
-export function SectionTitle({ title, count, link }) {
+export function SectionTitle({ title, count, link, icon: Icon }) {
   return (
     <div className="section-title">
       <h2>
+        {Icon && <Icon className="section-title__icon" size={18} strokeWidth={1.5} aria-hidden="true" />}
         {title}
         {count != null && <span className="mono section-title__count">{count}</span>}
       </h2>
@@ -48,7 +50,10 @@ export function Stack({ items }) {
   return (
     <ul className="stack" aria-label="Tools">
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item}>
+          <TechIcon name={item} />
+          {item}
+        </li>
       ))}
     </ul>
   )

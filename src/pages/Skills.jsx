@@ -1,5 +1,7 @@
+import { Award, BadgeCheck, Flag, Layers, ListChecks, Trophy } from 'lucide-react'
+import { TechIcon, TechTile } from '../components/TechIcon.jsx'
 import { PageHeader, Points, SectionTitle } from '../components/ui.jsx'
-import { accomplishments, certifications, skills } from '../data/cv.js'
+import { accomplishments, certifications, skills, techStack } from '../data/cv.js'
 
 export default function Skills() {
   return (
@@ -12,8 +14,26 @@ export default function Skills() {
       />
 
       <section className="band">
+        <div className="container">
+          <SectionTitle title="Stack" icon={Layers} />
+          <div className="stack-groups">
+            {techStack.map((g) => (
+              <div key={g.group} className="stack-group">
+                <h3>{g.group}</h3>
+                <ul className="tech-tiles">
+                  {g.items.map((name) => (
+                    <TechTile key={name} name={name} />
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
         <div className="container split">
-          <SectionTitle title="Skills" />
+          <SectionTitle title="Skills" icon={ListChecks} />
           <div className="split__body skill-groups">
             {skills.map((g) => (
               <div key={g.group} className="skill-group">
@@ -34,12 +54,15 @@ export default function Skills() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Certifications" count={certifications.length} />
+          <SectionTitle title="Certifications" icon={BadgeCheck} count={certifications.length} />
           <ol className="split__body rows">
             {certifications.map((c) => (
               <li key={c.title} className="row">
                 <div className="row__main">
-                  <h3>{c.title}</h3>
+                  <h3 className="with-logo">
+                    <TechIcon name={c.issuer} size="md" />
+                    {c.title}
+                  </h3>
                   <Points items={c.points} />
                 </div>
                 <div className="row__meta">
@@ -53,12 +76,19 @@ export default function Skills() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Accomplishments" count={accomplishments.length} />
+          <SectionTitle title="Accomplishments" icon={Award} count={accomplishments.length} />
           <div className="split__body wins">
             {accomplishments.map((a) => (
               <article key={a.title} className="card win">
                 <div className="win__head">
-                  <h3>{a.title}</h3>
+                  <h3 className="with-symbol">
+                    {a.result === '2nd place' ? (
+                      <Trophy size={18} strokeWidth={1.5} aria-hidden="true" />
+                    ) : (
+                      <Flag size={18} strokeWidth={1.5} aria-hidden="true" />
+                    )}
+                    {a.title}
+                  </h3>
                   <span className="mono">{a.period}</span>
                 </div>
                 <p className={`win__result${a.result === '2nd place' ? ' is-key' : ''}`}>{a.result}</p>

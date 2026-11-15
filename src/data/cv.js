@@ -244,3 +244,30 @@ export const personal = {
     text: 'Studying Japanese at beginner level, alongside native Malay and English',
   },
 }
+
+// Tools grouped for the stack sections on Home and Skills
+export const techStack = [
+  {
+    group: 'Cloud',
+    items: ['AWS', 'EC2', 'S3', 'RDS', 'VPC', 'Route 53', 'IAM', 'CloudWatch', 'ECS', 'ECR', 'Load Balancer'],
+  },
+  {
+    group: 'Servers and containers',
+    items: ['Docker', 'Linux', 'Proxmox', 'Apache', 'PHP', 'MySQL', 'WordPress'],
+  },
+  {
+    group: 'Security and data',
+    items: ['Kali Linux', 'Elasticsearch', 'Logstash', 'Kibana', 'Python'],
+  },
+  {
+    group: 'Networking',
+    items: ['Cisco', 'VLANs', 'Access points', 'Structured cabling', 'Fiber', 'Server racks'],
+  },
+  {
+    group: 'Documentation',
+    items: ['Word', 'Excel', 'PowerPoint'],
+  },
+]
+
+// Shown first on the home page
+export const featuredStack = ['AWS', 'EC2', 'S3', 'RDS', 'Docker', 'Linux', 'Proxmox', 'MySQL', 'Apache', 'Python', 'Kibana', 'Cisco']
