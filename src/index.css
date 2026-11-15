@@ -2340,3 +2340,77 @@ a.contact-card:hover {
     height: 28px;
   }
 }
+
+/* Organisation logos: workplaces and schools */
+
+.org-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  border-radius: 10px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.org-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.org-logo--lg {
+  width: 52px;
+  height: 52px;
+}
+
+.org-logo--mono {
+  padding: 0;
+  background: linear-gradient(160deg, var(--red) 0%, var(--red-deep) 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.entry__main,
+.role-link__main {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.entry__text,
+.role-link__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.entry__body {
+  padding-left: 282px;
+}
+
+.row__main--logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 760px) {
+  .entry__body {
+    padding-left: 0;
+  }
+
+  .org-logo {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+  }
+}

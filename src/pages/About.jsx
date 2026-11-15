@@ -1,5 +1,6 @@
 import { GraduationCap, Languages, User } from 'lucide-react'
 import OffTheClock from '../components/OffTheClock.jsx'
+import OrgLogo from '../components/OrgLogo.jsx'
 import { PageHeader, SectionTitle } from '../components/ui.jsx'
 import { education, languages, profile } from '../data/cv.js'
 
@@ -42,9 +43,12 @@ export default function About() {
           <ol className="split__body rows">
             {education.map((e) => (
               <li key={e.title} className="row">
-                <div className="row__main">
-                  <h3>{e.title}</h3>
-                  <p className="muted-line">{e.school}</p>
+                <div className="row__main row__main--logo">
+                  <OrgLogo slug={e.logo.slug} monogram={e.logo.monogram} name={e.title} size="lg" />
+                  <div>
+                    <h3>{e.title}</h3>
+                    <p className="muted-line">{e.school}</p>
+                  </div>
                 </div>
                 <div className="row__meta">
                   <span className="mono">{e.period}</span>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Briefcase, GraduationCap, Plus } from 'lucide-react'
+import OrgLogo from '../components/OrgLogo.jsx'
 import { PageHeader, Points, SectionTitle, Stack } from '../components/ui.jsx'
 import { education, experience } from '../data/cv.js'
 
@@ -11,6 +12,8 @@ const entries = [
     current: job.current,
     title: job.role,
     org: job.note ? `${job.company} · ${job.note}` : job.company,
+    orgName: job.company,
+    logo: job.logo,
     points: job.points,
     stack: job.stack,
   })),
@@ -20,6 +23,8 @@ const entries = [
     period: e.period,
     title: e.title,
     org: e.school,
+    orgName: e.title,
+    logo: e.logo,
     points: e.cgpa ? [`CGPA ${e.cgpa} out of 4.00`] : [],
   })),
 ]
@@ -48,8 +53,11 @@ function Entry({ entry, open, onToggle }) {
           {entry.period}
         </span>
         <span className="entry__main">
-          <span className="entry__title">{entry.title}</span>
-          <span className="muted-line">{entry.org}</span>
+          <OrgLogo slug={entry.logo?.slug} monogram={entry.logo?.monogram} name={entry.orgName} />
+          <span className="entry__text">
+            <span className="entry__title">{entry.title}</span>
+            <span className="muted-line">{entry.org}</span>
+          </span>
         </span>
         <span className="mono entry__kind">{entry.kind}</span>
         {expandable ? (

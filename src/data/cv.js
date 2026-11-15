@@ -25,23 +25,27 @@ export const education = [
   {
     title: 'Bachelor of Computer Science (Hons.) Computer Networks',
     school: 'Universiti Teknologi MARA (UiTM), Arau, Perlis',
+    logo: { slug: 'uitm', monogram: 'UiTM' },
     period: '2024 – 2026',
     cgpa: '3.39',
   },
   {
     title: 'Diploma in Computer Science',
     school: 'Universiti Teknologi MARA (UiTM), Merbok, Kedah',
+    logo: { slug: 'uitm', monogram: 'UiTM' },
     period: '2021 – 2024',
     cgpa: '3.34',
   },
   {
     title: 'Royal Military College (RMC)',
     school: 'Maktab Tentera Diraja, Sungai Besi, Kuala Lumpur',
+    logo: { slug: 'rmc', monogram: 'RMC' },
     period: '2019 – 2020',
   },
   {
     title: 'SMS Sultan Abdul Halim (Jenan)',
     school: 'Sekolah Menengah Sains Sultan Abdul Halim, Jitra, Kedah',
+    logo: { slug: 'smsah', monogram: 'SMS' },
     period: '2016 – 2018',
   },
 ]
@@ -50,6 +54,7 @@ export const experience = [
   {
     role: 'Junior Cloud Engineer',
     company: 'Stampede Solutions Sdn. Bhd.',
+    logo: { slug: 'stampede', monogram: 'SS' },
     period: 'Oct 2026 – Present',
     current: true,
     kind: 'Work',
@@ -65,6 +70,7 @@ export const experience = [
   {
     role: 'Data Center Engineer',
     company: 'Exabytes Sdn. Bhd.',
+    logo: { slug: 'exabytes', monogram: 'EX' },
     note: 'KYOUTH Development Programme',
     kind: 'Work',
     period: 'Sep 2026 – Oct 2026',
@@ -79,6 +85,7 @@ export const experience = [
   {
     role: 'Cloud Support Intern',
     company: 'Kenanga Investment Bank Berhad',
+    logo: { slug: 'kenanga', monogram: 'K' },
     kind: 'Internship',
     period: 'Mar 2026 – Jul 2026',
     points: [
@@ -94,6 +101,7 @@ export const experience = [
   {
     role: 'Network Technician Intern',
     company: 'Nurkamal Network Sdn. Bhd.',
+    logo: { slug: 'nurkamal', monogram: 'NN' },
     kind: 'Internship',
     period: 'Sep 2023 – Mar 2024',
     points: [

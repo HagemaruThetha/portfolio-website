@@ -15,6 +15,7 @@ import {
 import photo1200 from '../assets/zharif-aws-1200.webp'
 import photo640 from '../assets/zharif-aws-640.webp'
 import OffTheClock from '../components/OffTheClock.jsx'
+import OrgLogo from '../components/OrgLogo.jsx'
 import StackBoard from '../components/StackBoard.jsx'
 import { TechIcon } from '../components/TechIcon.jsx'
 import { SectionTitle } from '../components/ui.jsx'
@@ -133,8 +134,11 @@ export default function Home() {
                     {job.period}
                   </span>
                   <span className="role-link__main">
-                    <span className="role-link__title">{job.role}</span>
-                    <span className="muted-line">{job.company}</span>
+                    <OrgLogo slug={job.logo.slug} monogram={job.logo.monogram} name={job.company} />
+                    <span className="role-link__text">
+                      <span className="role-link__title">{job.role}</span>
+                      <span className="muted-line">{job.company}</span>
+                    </span>
                   </span>
                   <span className="mono role-link__kind">{job.kind}</span>
                 </Link>
