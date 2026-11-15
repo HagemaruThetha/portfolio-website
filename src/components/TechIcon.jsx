@@ -47,12 +47,3 @@ export function TechIcon({ name, size = 'sm' }) {
     </span>
   )
 }
-
-export function TechTile({ name }) {
-  return (
-    <li className="tech-tile">
-      <TechIcon name={name} size="lg" />
-      <span>{name}</span>
-    </li>
-  )
-}

@@ -15,9 +15,17 @@ import {
 import photo1200 from '../assets/zharif-aws-1200.webp'
 import photo640 from '../assets/zharif-aws-640.webp'
 import OffTheClock from '../components/OffTheClock.jsx'
+import StackBoard from '../components/StackBoard.jsx'
 import { TechIcon } from '../components/TechIcon.jsx'
 import { SectionTitle } from '../components/ui.jsx'
 import { experience, stackLayers, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
+
+// Cloud and servers on the top row, security and network on the bottom
+const boardRows = [
+  [...stackLayers[0].items, ...stackLayers[1].items],
+  [...stackLayers[2].items, ...stackLayers[3].items],
+]
+const toolCount = stackLayers.reduce((n, l) => n + l.items.length, 0)
 
 const statIcons = [Briefcase, FolderGit2, BadgeCheck, GraduationCap]
 const focusIcons = [Cloud, Server, ShieldCheck]
@@ -99,27 +107,17 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="My stack" icon={Layers} link={{ to: '/skills', label: 'Full stack and skills' }} />
-          <p className="band__intro">Everything I work with, from AWS at the top down to the server rack</p>
-          <ol className="layers">
-            {stackLayers.map((l) => (
-              <li key={l.layer} className="layer">
-                <div className="layer__meta">
-                  <span className="layer__tag mono">{l.layer}</span>
-                  <h3>{l.title}</h3>
-                  <p className="muted-line">{l.usedAt}</p>
-                </div>
-                <ul className="layer__tools">
-                  {l.items.map((name) => (
-                    <li key={name} className="tool">
-                      <TechIcon name={name} size="md" />
-                      <span>{name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
+          <SectionTitle title="My stack" icon={Layers} />
+          <StackBoard rows={boardRows} />
+          <div className="board__footer">
+            <p className="muted-line">
+              {toolCount} tools across {stackLayers.length} layers, from AWS down to the server rack
+            </p>
+            <Link className="btn btn--secondary" to="/skills">
+              See the full stack
+              <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 

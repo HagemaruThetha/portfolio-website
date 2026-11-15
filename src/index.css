@@ -2156,46 +2156,104 @@ a.contact-card:hover {
   white-space: nowrap;
 }
 
-/* Skills: grouped logo tiles */
+/* Home: pitchside LED board with the stack scrolling past */
 
-.stack-groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.stack-group {
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-card);
-  background: var(--card);
-}
-
-.stack-group:first-child {
-  grid-column: 1 / -1;
-}
-
-.stack-group h3 {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.tech-tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-  gap: 16px 12px;
-  margin-top: 16px;
-}
-
-.tech-tile {
+.board {
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  padding: 12px 0;
+  border-radius: var(--r-panel);
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+  background-color: #070101;
+  /* LED dot texture */
+  background-image: radial-gradient(rgba(255, 70, 70, 0.09) 1px, transparent 1.4px);
+  background-size: 6px 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.board__row {
+  overflow: hidden;
+  /* Fade the edges so items slide in and out of view */
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.board__track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  padding: 8px 6px;
+  animation: board-scroll var(--duration, 40s) linear infinite;
+}
+
+.board__track.is-reverse {
+  animation-direction: reverse;
+}
+
+.board:hover .board__track {
+  animation-play-state: paused;
+}
+
+.board__item {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  line-height: 18px;
-  color: var(--text-2);
-  text-align: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 20px 0 12px;
+  border: 1px solid rgba(255, 236, 236, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.board__item .tech-icon--md {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes board-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Two identical copies: moving by half loops seamlessly (gap included) */
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+.board__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.board__footer .btn svg {
+  margin-left: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .board__item[aria-hidden='true'] {
+    display: none;
+  }
+
+  .board__row {
+    mask-image: none;
+  }
 }
 
 /* Small details that pick up icons */
@@ -2226,11 +2284,7 @@ a.contact-card:hover {
 }
 
 @media (max-width: 1024px) {
-    .stack-groups {
-    grid-template-columns: 1fr;
-  }
-
-  .layer {
+    .layer {
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -2266,11 +2320,15 @@ a.contact-card:hover {
     padding: 8px;
   }
 
-  .stack-group {
-    padding: 20px 16px;
+  .board__item {
+    height: 44px;
+    padding: 0 14px 0 8px;
+    gap: 10px;
+    font-size: 14px;
   }
 
-  .tech-tiles {
-    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  .board__item .tech-icon--md {
+    width: 28px;
+    height: 28px;
   }
 }

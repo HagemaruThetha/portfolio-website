@@ -244,31 +244,7 @@ export const personal = {
   },
 }
 
-// Tools grouped for the stack sections on Home and Skills
-export const techStack = [
-  {
-    group: 'Cloud',
-    items: ['AWS', 'EC2', 'S3', 'RDS', 'VPC', 'Route 53', 'IAM', 'CloudWatch', 'ECS', 'ECR', 'Load Balancer'],
-  },
-  {
-    group: 'Servers and containers',
-    items: ['Docker', 'Linux', 'Proxmox', 'Apache', 'PHP', 'MySQL', 'WordPress'],
-  },
-  {
-    group: 'Security and data',
-    items: ['Kali Linux', 'Elasticsearch', 'Logstash', 'Kibana', 'Python'],
-  },
-  {
-    group: 'Networking',
-    items: ['Cisco', 'VLANs', 'Access points', 'Structured cabling', 'Fiber', 'Server racks'],
-  },
-  {
-    group: 'Documentation',
-    items: ['Word', 'Excel', 'PowerPoint'],
-  },
-]
-
-// Home page stack, top to bottom: from the cloud down to the rack
+// The stack, top to bottom: from the cloud down to the rack
 export const stackLayers = [
   {
     layer: 'L4',

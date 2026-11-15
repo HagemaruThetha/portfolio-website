@@ -1,7 +1,8 @@
 import { Award, BadgeCheck, Flag, Layers, ListChecks, Trophy } from 'lucide-react'
-import { TechIcon, TechTile } from '../components/TechIcon.jsx'
+import StackLayers from '../components/StackLayers.jsx'
+import { TechIcon } from '../components/TechIcon.jsx'
 import { PageHeader, Points, SectionTitle } from '../components/ui.jsx'
-import { accomplishments, certifications, skills, techStack } from '../data/cv.js'
+import { accomplishments, certifications, skills } from '../data/cv.js'
 
 export default function Skills() {
   return (
@@ -15,19 +16,9 @@ export default function Skills() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Stack" icon={Layers} />
-          <div className="stack-groups">
-            {techStack.map((g) => (
-              <div key={g.group} className="stack-group">
-                <h3>{g.group}</h3>
-                <ul className="tech-tiles">
-                  {g.items.map((name) => (
-                    <TechTile key={name} name={name} />
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <SectionTitle title="Full stack" icon={Layers} />
+          <p className="band__intro">Every tool I have used, grouped from the cloud at the top down to network hardware, with where I used it</p>
+          <StackLayers />
         </div>
       </section>
 
