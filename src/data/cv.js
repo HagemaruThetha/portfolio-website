@@ -225,12 +225,11 @@ export const focusAreas = [
 export const personal = {
   club: {
     name: 'Manchester United',
+    season: 'Season 2026/27',
+    ground: 'Old Trafford',
+    address: 'Sir Matt Busby Way, Manchester',
+    watchingFrom: 'Kuala Lumpur',
     text: 'Outside work I follow Manchester United. Whatever the result, matchdays are for the Reds.',
-    fields: [
-      { label: 'Club', value: 'Manchester United' },
-      { label: 'Ground', value: 'Old Trafford' },
-      { label: 'Watching from', value: 'Kuala Lumpur' },
-    ],
     chant: 'Glory, glory, Man United',
   },
   ctf: {

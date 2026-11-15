@@ -1,6 +1,7 @@
 import { Coffee, Flag, Languages } from 'lucide-react'
+import StadiumView from './StadiumView.jsx'
 import { SectionTitle } from './ui.jsx'
-import { personal } from '../data/cv.js'
+import { personal, profile } from '../data/cv.js'
 
 // Drop a crest image at src/assets/man-utd-crest.(svg|png|webp) and it shows on the ticket
 const crestFiles = import.meta.glob('../assets/man-utd-crest.{svg,png,webp,jpg}', {
@@ -9,32 +10,80 @@ const crestFiles = import.meta.glob('../assets/man-utd-crest.{svg,png,webp,jpg}'
 })
 const crest = Object.values(crestFiles)[0]
 
-function SupporterTicket() {
+// Decorative barcode, derived from the text so it stays the same on every render
+function Barcode({ text }) {
+  const bars = []
+  let x = 0
+  for (const ch of text.repeat(2)) {
+    const code = ch.charCodeAt(0)
+    const w = 1 + (code % 3)
+    bars.push(<rect key={bars.length} x={x} y="0" width={w} height="40" />)
+    x += w + 1 + ((code >> 2) % 3)
+  }
+  return (
+    <svg className="mticket__barcode" viewBox={`0 0 ${x} 40`} preserveAspectRatio="none" aria-hidden="true">
+      <g fill="currentColor">{bars}</g>
+    </svg>
+  )
+}
+
+function MatchTicket() {
   const { club } = personal
   return (
-    <article className="ticket" aria-label={`${club.name} supporter`}>
-      <div className="ticket__main">
-        <div className="ticket__top">
-          {crest && <img className="ticket__crest" src={crest} alt="" width="56" height="56" />}
-          <div>
-            <span className="ticket__eyebrow">Supporter card</span>
-            <h3 className="ticket__club">{club.name}</h3>
+    <article className="mticket" aria-label={`${club.name} home match supporter ticket`}>
+      <div className="mticket__main">
+        <header className="mticket__head">
+          {crest ? (
+            <img className="mticket__crest" src={crest} alt="" width="40" height="40" />
+          ) : (
+            <span className="mticket__badge" aria-hidden="true">
+              MU
+            </span>
+          )}
+          <div className="mticket__title">
+            <span className="mticket__club">{club.name}</span>
+            <span className="mticket__type">Home match · Supporter ticket</span>
           </div>
+          <span className="mticket__season">{club.season}</span>
+        </header>
+
+        <div className="mticket__view">
+          <StadiumView />
+          <span className="mticket__view-label">{club.ground}</span>
         </div>
-        <p className="ticket__text">{club.text}</p>
-        <dl className="ticket__fields">
-          {club.fields.map((f) => (
-            <div key={f.label}>
-              <dt>{f.label}</dt>
-              <dd>{f.value}</dd>
-            </div>
-          ))}
+
+        <dl className="mticket__fields">
+          <div>
+            <dt>Ground</dt>
+            <dd>{club.ground}</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>{club.address}</dd>
+          </div>
+          <div>
+            <dt>Supporter</dt>
+            <dd>{profile.shortName}</dd>
+          </div>
+          <div>
+            <dt>Watching from</dt>
+            <dd>{club.watchingFrom}</dd>
+          </div>
         </dl>
+        <p className="mticket__note">{club.text}</p>
       </div>
-      <div className="ticket__stub" aria-hidden="true">
-        <span className="ticket__stub-label">Admit</span>
-        <span className="ticket__stub-value">One</span>
-        <span className="ticket__chant">{club.chant}</span>
+
+      <div className="mticket__stub">
+        <div className="mticket__stub-row">
+          <span className="mticket__label">Admit</span>
+          <span className="mticket__admit">One</span>
+        </div>
+        <div className="mticket__stub-row">
+          <span className="mticket__label">Ground</span>
+          <span className="mticket__stub-value">{club.ground}</span>
+        </div>
+        <Barcode text={`${club.name}${profile.shortName}`} />
+        <span className="mticket__chant">{club.chant}</span>
       </div>
     </article>
   )
@@ -47,7 +96,7 @@ export default function OffTheClock({ link }) {
       <div className="container">
         <SectionTitle title="Off the clock" icon={Coffee} link={link} />
         <div className="personal-grid">
-          <SupporterTicket />
+          <MatchTicket />
           <div className="personal-side">
             <article className="card personal-card">
               <span className="project__area with-symbol">
