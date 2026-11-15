@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Mail } from 'lucide-react'
-import ArchitectureDiagram from '../components/ArchitectureDiagram.jsx'
+import photo1200 from '../assets/zharif-aws-1200.webp'
+import photo640 from '../assets/zharif-aws-640.webp'
 import { SectionTitle } from '../components/ui.jsx'
-import { experience, focusAreas, profile, projects, stats } from '../data/cv.js'
+import { experience, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
 import { usePageTitle } from '../lib/site.js'
 
 export default function Home() {
@@ -16,21 +17,49 @@ export default function Home() {
               <span className="status-dot" aria-hidden="true" />
               {profile.role} · {profile.location}
             </p>
-            <h1>{profile.headline}</h1>
-            <p className="hero__intro">{profile.intro}</p>
+            <h1>
+              {profile.firstNames} <span className="hero__surname">{profile.surname}</span>
+            </h1>
+            <div className="hero__bio">
+              {profile.bio.map((p) => (
+                <p key={p.slice(0, 24)}>{p}</p>
+              ))}
+            </div>
+            <dl className="hero__facts">
+              <div>
+                <dt>Now</dt>
+                <dd>{experience[0].role}, {experience[0].company}</dd>
+              </div>
+              <div>
+                <dt>Studied</dt>
+                <dd>Computer Networks, UiTM</dd>
+              </div>
+              <div>
+                <dt>Speaks</dt>
+                <dd>{languages.map((l) => (l.level === 'Beginner' ? `basic ${l.name}` : l.name)).join(', ')}</dd>
+              </div>
+            </dl>
             <div className="hero__actions">
               <a className="btn btn--primary" href={`mailto:${profile.email}`}>
                 <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
                 Email me
               </a>
-              <Link className="btn btn--secondary" to="/career">
-                View career
+              <Link className="btn btn--secondary" to="/about">
+                More about me
               </Link>
             </div>
           </div>
-          <div className="hero__visual">
-            <ArchitectureDiagram />
-          </div>
+          <figure className="hero__photo">
+            <img
+              src={photo640}
+              srcSet={`${photo640} 640w, ${photo1200} 1200w`}
+              sizes="(max-width: 1024px) 100vw, 480px"
+              width="1200"
+              height="1500"
+              fetchPriority="high"
+              alt="Zharif smiling with a thumbs up in front of an AWS logo on a wooden wall"
+            />
+          </figure>
         </div>
       </section>
 

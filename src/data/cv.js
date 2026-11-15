@@ -8,9 +8,12 @@ export const profile = {
   email: 'zharifzhafran7@gmail.com',
   phone: '+60 19-400 1889',
   phoneHref: 'tel:+60194001889',
-  headline: 'Cloud engineer working across AWS, Linux and the data center floor',
-  intro:
-    'Junior Cloud Engineer at Stampede Solutions. I have supported AWS workloads in a regulated bank, racked servers in a data center and configured the network underneath.',
+  firstNames: 'Muhammad Zharif Zhafran',
+  surname: 'Bin Ismadi',
+  bio: [
+    'I’m Zharif, a Junior Cloud Engineer at Stampede Solutions in Kuala Lumpur. I studied Computer Science at UiTM, first a diploma and then a bachelor’s degree in Computer Networks.',
+    'I started on the physical side of networks, running structured cabling and configuring access points and VLANs. Since then I have racked servers at Exabytes, supported AWS workloads at Kenanga Investment Bank, and now configure Linux servers, Proxmox and web stacks. I’m building deeper expertise in cloud infrastructure, networking and cloud security.',
+  ],
   summary: [
     'Aspiring Cloud Engineer with hands-on experience in AWS cloud operations, infrastructure deployment, cloud monitoring and network configuration in enterprise environments. Experienced supporting workloads using Amazon EC2, S3, RDS, VPC and containerized services, with exposure to remediation, cost optimization and day-to-day operations guided by security best practices.',
     'Also experienced with Linux, Proxmox, web servers, MySQL, data center operations and network troubleshooting. Focused on building deeper expertise in cloud infrastructure, networking and cloud security.',

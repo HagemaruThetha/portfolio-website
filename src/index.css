@@ -341,7 +341,7 @@ a {
 .hero__inner {
   min-height: min(760px, calc(100svh - var(--header-h)));
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   align-items: center;
   gap: 64px;
   padding-block: 64px;
@@ -351,8 +351,22 @@ a {
   animation: rise 420ms var(--ease) both;
 }
 
-.hero__visual {
+.hero__photo {
+  justify-self: end;
+  width: 100%;
+  max-width: 480px;
   animation: rise 420ms var(--ease) 60ms both;
+}
+
+.hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-panel);
+  border: 1px solid var(--line-strong);
+  background: var(--card);
 }
 
 .hero__role {
@@ -372,6 +386,54 @@ a {
   letter-spacing: -0.03em;
   max-width: 13em;
   text-wrap: balance;
+}
+
+.hero__surname {
+  color: var(--text-2);
+}
+
+.hero__bio {
+  margin-top: 24px;
+  max-width: 36rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero__bio p {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+.hero__bio p:first-child {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  max-width: 36rem;
+}
+
+.hero__facts dt {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.hero__facts dd {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text);
 }
 
 .hero__intro {
@@ -1323,7 +1385,7 @@ a.contact-card:hover {
   }
   .page,
   .hero__text,
-  .hero__visual {
+  .hero__photo {
     animation: none;
   }
 }
@@ -1344,6 +1406,11 @@ a.contact-card:hover {
 
   .hero h1 {
     font-size: 48px;
+  }
+
+  .hero__photo {
+    justify-self: start;
+    max-width: 420px;
   }
 
   .split {
@@ -1421,6 +1488,15 @@ a.contact-card:hover {
 
   .hero__actions {
     margin-top: 32px;
+  }
+
+  .hero__facts {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero__bio p:first-child {
+    font-size: 17px;
   }
 
   .page-header__inner {
