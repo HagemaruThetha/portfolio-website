@@ -24,4 +24,4 @@ npm run preview
 
 ## Design
 
-The visual design follows the [unslop](https://github.com/heydamir/unslop) method by Damir Sokolovsky (CC BY 4.0): a black and red palette (#000000, #830000, #BC0202, #FF0000), IBM Plex Sans and Mono, and a 4px spacing grid. The hero visual is the WordPress-on-AWS project drawn as a VPC diagram in `src/components/ArchitectureDiagram.jsx`.
+The visual design follows the [unslop](https://github.com/heydamir/unslop) method by Damir Sokolovsky (CC BY 4.0): a light theme with the red palette (#830000, #BC0202, #FF0000) and black ink, IBM Plex Sans and Mono, and a 4px spacing grid. The hero visual is the WordPress-on-AWS project drawn as a VPC diagram in `src/components/ArchitectureDiagram.jsx`.
