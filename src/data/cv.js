@@ -268,5 +268,30 @@ export const techStack = [
   },
 ]
 
-// Shown first on the home page
-export const featuredStack = ['AWS', 'EC2', 'S3', 'RDS', 'Docker', 'Linux', 'Proxmox', 'MySQL', 'Apache', 'Python', 'Kibana', 'Cisco']
+// Home page stack, top to bottom: from the cloud down to the rack
+export const stackLayers = [
+  {
+    layer: 'L4',
+    title: 'Cloud',
+    usedAt: 'Kenanga Investment Bank · WordPress on AWS project',
+    items: ['AWS', 'EC2', 'S3', 'RDS', 'VPC', 'Route 53', 'IAM', 'CloudWatch', 'ECS', 'Load Balancer'],
+  },
+  {
+    layer: 'L3',
+    title: 'Servers and containers',
+    usedAt: 'Stampede Solutions · WordPress on AWS project',
+    items: ['Docker', 'Linux', 'Proxmox', 'Apache', 'PHP', 'MySQL', 'WordPress'],
+  },
+  {
+    layer: 'L2',
+    title: 'Security and data',
+    usedAt: 'Final year project · ELK SIEM project · security testing',
+    items: ['Kali Linux', 'Elasticsearch', 'Logstash', 'Kibana', 'Python'],
+  },
+  {
+    layer: 'L1',
+    title: 'Network and hardware',
+    usedAt: 'Nurkamal Network · Exabytes · Cisco CCNA',
+    items: ['Cisco', 'VLANs', 'Access points', 'Structured cabling', 'Fiber', 'Server racks'],
+  },
+]

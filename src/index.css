@@ -2025,38 +2025,106 @@ a.contact-card:hover {
   color: var(--text-2);
 }
 
-/* Home: stack showcase */
+/* Home: the stack as layers, cloud at the top and hardware at the bottom */
 
-.stack-showcase {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
+.layers {
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  background: var(--card);
+  overflow: hidden;
 }
 
-.stack-card {
-  display: flex;
-  flex-direction: column;
+.layer {
+  --spine: var(--red);
+  position: relative;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 32px;
+  padding: 24px 24px 24px 32px;
+  border-top: 1px solid var(--line);
+}
+
+.layer:first-child {
+  border-top: 0;
+  --spine: #ff0000;
+}
+
+.layer:nth-child(2) {
+  --spine: #d40303;
+}
+
+.layer:nth-child(3) {
+  --spine: #bc0202;
+}
+
+.layer:nth-child(4) {
+  --spine: #830000;
+}
+
+/* The spine: one bar per layer, so the column steps from bright to deep red */
+.layer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--spine);
+}
+
+.layer__meta h3 {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.layer__meta .muted-line {
+  margin-top: 4px;
+}
+
+.layer__tag {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 12px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--r-tag);
+  background: color-mix(in srgb, var(--spine) 24%, transparent);
+  color: #ffd6d6;
+}
+
+.layer__tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 8px;
+  align-content: center;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 12px 0 8px;
   border: 1px solid var(--line);
-  border-radius: var(--r-card);
-  background: var(--card);
+  border-radius: var(--r-control);
+  background: var(--bg);
   color: var(--text);
   font-size: 14px;
   line-height: 20px;
-  text-align: center;
-  text-decoration: none;
   transition:
-    background-color var(--fast) var(--ease),
     border-color var(--fast) var(--ease),
-    transform var(--fast) var(--ease);
+    background-color var(--fast) var(--ease);
 }
 
-.stack-card:hover {
+.tool:hover {
+  border-color: color-mix(in srgb, var(--spine) 70%, transparent);
   background: var(--raised);
-  border-color: color-mix(in srgb, var(--red) 60%, transparent);
-  transform: translateY(-2px);
+}
+
+.tool span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Skills: grouped logo tiles */
@@ -2129,25 +2197,38 @@ a.contact-card:hover {
 }
 
 @media (max-width: 1024px) {
-  .stack-showcase {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    .stack-groups {
+    grid-template-columns: 1fr;
   }
 
-  .stack-groups {
+  .layer {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
 @media (max-width: 760px) {
-  .stack-showcase {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
+    .layer {
+    padding: 20px 16px 20px 24px;
   }
 
-  .stack-card {
-    padding: 16px 8px;
+  .layer__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tool {
+    height: 36px;
+    padding: 0 10px 0 5px;
     gap: 8px;
     font-size: 13px;
+  }
+
+  .tool .tech-icon--md {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
   }
 
   .tech-icon--xl {
@@ -2162,11 +2243,5 @@ a.contact-card:hover {
 
   .tech-tiles {
     grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stack-card:hover {
-    transform: none;
   }
 }

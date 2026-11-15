@@ -17,7 +17,7 @@ import photo640 from '../assets/zharif-aws-640.webp'
 import OffTheClock from '../components/OffTheClock.jsx'
 import { TechIcon } from '../components/TechIcon.jsx'
 import { SectionTitle } from '../components/ui.jsx'
-import { experience, featuredStack, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
+import { experience, stackLayers, focusAreas, languages, profile, projects, stats } from '../data/cv.js'
 
 const statIcons = [Briefcase, FolderGit2, BadgeCheck, GraduationCap]
 const focusIcons = [Cloud, Server, ShieldCheck]
@@ -100,17 +100,26 @@ export default function Home() {
       <section className="band">
         <div className="container">
           <SectionTitle title="My stack" icon={Layers} link={{ to: '/skills', label: 'Full stack and skills' }} />
-          <p className="band__intro">The tools I use at work and in my projects, from AWS to the server rack</p>
-          <ul className="stack-showcase">
-            {featuredStack.map((name) => (
-              <li key={name}>
-                <Link to="/skills" className="stack-card">
-                  <TechIcon name={name} size="xl" />
-                  <span>{name}</span>
-                </Link>
+          <p className="band__intro">Everything I work with, from AWS at the top down to the server rack</p>
+          <ol className="layers">
+            {stackLayers.map((l) => (
+              <li key={l.layer} className="layer">
+                <div className="layer__meta">
+                  <span className="layer__tag mono">{l.layer}</span>
+                  <h3>{l.title}</h3>
+                  <p className="muted-line">{l.usedAt}</p>
+                </div>
+                <ul className="layer__tools">
+                  {l.items.map((name) => (
+                    <li key={name} className="tool">
+                      <TechIcon name={name} size="md" />
+                      <span>{name}</span>
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </section>
 
