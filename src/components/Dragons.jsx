@@ -1,28 +1,52 @@
 // Faint red dragons gliding across a fixed layer behind the page.
-// Each one flaps, bobs and crosses the screen at its own size, height and pace.
+// The dragon is drawn flying right: horned head, spined S-neck, clawed legs,
+// spade tail and bat wings that flap from the shoulder.
+
+const shape = {
+  spines: "M327.3 61.9L308.2 54.2L313.2 66.8ZM307.7 70.3L288.2 70.8L297.3 79.8ZM293.6 85.0L275.6 89.1L285.8 95.8ZM281.2 100.1L264.1 96.4L270.1 106.2ZM264.1 107.6L251.0 97.4L252.1 108.2ZM246.3 106.7L235.3 95.6L235.1 105.9ZM229.2 105.8L217.4 96.9L218.6 106.5ZM212.9 107.3L200.8 100.4L203.0 109.2ZM197.7 111.1L186.0 105.1L188.5 113.4ZM183.1 114.7L172.1 109.0L174.5 116.8ZM169.2 118.2L158.5 113.6L161.2 120.7ZM156.1 121.6L148.6 113.7L148.3 120.8ZM142.9 120.7L135.0 114.3L135.6 121.0ZM130.4 121.7L122.2 116.8L123.6 122.9ZM118.6 124.2L110.4 120.6L112.4 126.2ZM107.7 128.0L99.7 125.6L102.2 130.5ZM97.7 132.8L90.1 131.1L92.8 135.5ZM88.5 138.0L81.5 136.2L83.8 140.3ZM79.3 142.1L73.2 139.3L74.6 143.5ZM69.9 144.5L64.7 140.9L65.4 145.0ZM60.6 145.0L56.7 140.8L56.5 144.5Z",
+  head: "M330 62C340 54 352 52 362 56L386 66C391 68 391 73 386 74L368 76L382 82C378 88 366 89 357 86C348 92 338 92 330 88Z",
+  horns: "M338 60C330 44 316 34 296 32C312 42 322 52 328 66ZM348 57C344 46 336 38 324 35C334 44 338 52 340 61Z",
+  neck: "M336 62C316 62 300 72 290 88C280 104 268 108 254 108L260 144C276 138 290 126 300 112C310 98 320 92 334 90Z",
+  torso: "M260 106C240 102 216 104 196 110C178 115 166 118 156 124C146 132 146 148 158 156C176 164 200 162 222 156C242 150 258 144 270 138Z",
+  tail: "M160 122C136 118 112 124 92 136C72 148 52 148 38 136C32 130 28 122 26 114C24 128 28 144 40 152C60 166 84 158 104 148C124 138 142 142 158 156Z",
+  spade: "M28 116L6 98L30 104L22 84L40 112C36 120 32 122 28 116Z",
+  arm: "M244 140C250 154 262 162 276 164L290 166L280 170L290 176L276 175L280 182L266 174C252 170 240 160 232 146Z",
+  leg: "M168 148C182 152 196 162 198 176C198 186 190 194 178 198L170 208L171 199L160 205L164 195L152 197C162 189 174 184 180 176C176 168 168 162 158 158Z",
+  wingNear: "M246 112L222 50L264 8L160 0Q162 22 122 26Q140 46 104 72Q140 84 116 110Q156 104 186 120Z",
+  wingNearBones: "M246 112L222 50L264 8M264 8L160 0M264 8L122 26M264 8L104 72M260 14L116 110",
+  wingFar: "M262 108L278 46L326 18L262 14Q264 32 240 40Q256 56 236 78Q260 82 254 104Z",
+  wingFarBones: "M262 108L278 46L326 18M326 18L262 14M326 18L240 40M326 18L236 78",
+  thumb: "M262 10L270 0L272 12Z",
+}
 
 const flight = [
-  { size: 220, top: '14%', duration: 46, delay: -8, dir: 'right', opacity: 0.14 },
-  { size: 140, top: '46%', duration: 62, delay: -40, dir: 'left', opacity: 0.1 },
-  { size: 300, top: '70%', duration: 80, delay: -22, dir: 'right', opacity: 0.08 },
-  { size: 110, top: '30%', duration: 54, delay: -52, dir: 'left', opacity: 0.12 },
+  { size: 260, top: '12%', duration: 48, delay: -8, dir: 'right', opacity: 0.16 },
+  { size: 170, top: '44%', duration: 64, delay: -40, dir: 'left', opacity: 0.12 },
+  { size: 340, top: '68%', duration: 82, delay: -22, dir: 'right', opacity: 0.09 },
+  { size: 140, top: '28%', duration: 56, delay: -52, dir: 'left', opacity: 0.13 },
 ]
 
 function Dragon() {
   return (
-    <svg className="dragon__svg" viewBox="0 0 240 140" aria-hidden="true">
+    <svg className="dragon__svg" viewBox="0 -16 400 236" aria-hidden="true">
       <g className="dragon__wing dragon__wing--far">
-        <path
-          opacity="0.6"
-          d="M128 74 C132 54 140 34 152 14 C152 26 156 34 164 38 C164 46 170 52 178 54 C174 60 176 66 182 70 C166 72 148 76 134 80 Z"
-        />
+        <path d={shape.wingFar} opacity="0.38" />
+        <path className="dragon__bones" d={shape.wingFarBones} opacity="0.5" />
       </g>
-      <path d="M112 84 C88 90 66 100 46 104 C34 107 24 106 16 100 C22 108 30 112 40 112 C58 112 80 104 114 94 Z" />
-      <path d="M18 100 L4 92 L8 104 L2 112 L16 108 L22 104 Z" />
-      <path d="M96 84 C104 74 118 68 134 66 C148 64 160 64 170 60 C178 56 184 48 190 44 L194 34 L196 44 L204 38 L202 46 C210 46 218 50 226 54 L216 56 L224 60 C214 62 206 60 200 58 C194 62 188 68 180 74 C168 82 152 88 136 92 C120 96 104 96 96 84 Z" />
-      <path d="M120 92 C118 98 114 102 108 104 L112 106 C120 104 126 100 128 94 Z M150 86 C150 94 148 98 142 102 L146 104 C154 100 158 94 158 86 Z" />
+      <path d={shape.tail} />
+      <path d={shape.spade} />
+      <path d={shape.leg} />
+      <path d={shape.torso} />
+      <path d={shape.neck} />
+      <path d={shape.spines} />
+      <path d={shape.horns} />
+      <path d={shape.head} />
+      <path d={shape.arm} />
+      <ellipse className="dragon__eye" cx="356" cy="66" rx="3" ry="1.6" />
       <g className="dragon__wing dragon__wing--near">
-        <path d="M120 80 C118 58 112 34 98 10 C104 22 112 28 122 28 C120 38 126 46 136 48 C134 56 138 62 146 66 C140 72 132 76 126 82 Z" />
+        <path d={shape.wingNear} opacity="0.62" />
+        <path className="dragon__bones dragon__bones--near" d={shape.wingNearBones} />
+        <path className="dragon__claw" d={shape.thumb} />
       </g>
     </svg>
   )
@@ -39,7 +63,7 @@ export default function Dragons() {
             '--size': `${d.size}px`,
             '--duration': `${d.duration}s`,
             '--delay': `${d.delay}s`,
-            '--rest-x': `${15 + i * 22}vw`,
+            '--rest-x': `${10 + i * 22}vw`,
             top: d.top,
             opacity: d.opacity,
           }}
