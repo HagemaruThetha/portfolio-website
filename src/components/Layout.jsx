@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Mail, Menu, X } from 'lucide-react'
+import Dragons from './Dragons.jsx'
 import { profile } from '../data/cv.js'
 import { allPages, pages } from '../lib/site.js'
 
@@ -94,6 +95,7 @@ export default function Layout() {
 
   return (
     <>
+      <Dragons />
       <a className="skip-link" href="#main">
         Skip to content
       </a>

@@ -2419,3 +2419,109 @@ a.contact-card:hover {
     padding: 5px;
   }
 }
+
+/* Dragons flying behind the page */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Let the dragons show faintly through the page headers too */
+.page-header {
+  background: color-mix(in srgb, var(--bg-deep) 82%, transparent);
+}
+
+.dragon {
+  position: absolute;
+  left: 0;
+  width: var(--size);
+  color: var(--red);
+  animation: dragon-fly var(--duration) linear var(--delay) infinite;
+  will-change: transform;
+}
+
+.dragon--left {
+  animation-direction: reverse;
+}
+
+/* Face the way it flies */
+.dragon--left .dragon__svg {
+  transform: scaleX(-1);
+}
+
+.dragon__bob {
+  animation: dragon-bob 4.2s ease-in-out infinite alternate;
+}
+
+.dragon__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+  overflow: visible;
+}
+
+.dragon__wing {
+  transform-box: fill-box;
+  transform-origin: 30% 100%;
+  animation: dragon-flap 1.1s ease-in-out infinite alternate;
+}
+
+.dragon__wing--far {
+  animation-delay: -0.08s;
+}
+
+@keyframes dragon-fly {
+  from {
+    transform: translateX(-40vw);
+  }
+  to {
+    transform: translateX(130vw);
+  }
+}
+
+@keyframes dragon-bob {
+  from {
+    transform: translateY(-14px) rotate(-2deg);
+  }
+  to {
+    transform: translateY(14px) rotate(2deg);
+  }
+}
+
+@keyframes dragon-flap {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(-0.45);
+  }
+}
+
+@media (max-width: 760px) {
+  .dragon {
+    width: calc(var(--size) * 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dragon,
+  .dragon__bob,
+  .dragon__wing {
+    animation: none;
+  }
+
+  .dragon {
+    transform: translateX(var(--rest-x));
+  }
+}
