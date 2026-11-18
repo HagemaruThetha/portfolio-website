@@ -134,7 +134,7 @@ export default function Home() {
                     {job.period}
                   </span>
                   <span className="role-link__main">
-                    <OrgLogo slug={job.logo.slug} monogram={job.logo.monogram} name={job.company} />
+                    <OrgLogo slug={job.logo.slug} monogram={job.logo.monogram} wide={job.logo.wide} name={job.company} />
                     <span className="role-link__text">
                       <span className="role-link__title">{job.role}</span>
                       <span className="muted-line">{job.company}</span>

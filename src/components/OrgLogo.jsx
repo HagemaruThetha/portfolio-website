@@ -6,11 +6,11 @@ const bySlug = Object.fromEntries(
   Object.entries(files).map(([path, url]) => [path.split('/').pop().replace(/\.\w+$/, ''), url]),
 )
 
-export default function OrgLogo({ slug, name, monogram, size = 'md' }) {
+export default function OrgLogo({ slug, name, monogram, wide, size = 'md' }) {
   const src = bySlug[slug]
   if (src) {
     return (
-      <span className={`org-logo org-logo--${size}`}>
+      <span className={`org-logo org-logo--${size}${wide ? ' org-logo--wide' : ''}`}>
         <img src={src} alt={`${name} logo`} loading="lazy" />
       </span>
     )

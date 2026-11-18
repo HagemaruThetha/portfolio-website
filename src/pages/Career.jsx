@@ -53,7 +53,7 @@ function Entry({ entry, open, onToggle }) {
           {entry.period}
         </span>
         <span className="entry__main">
-          <OrgLogo slug={entry.logo?.slug} monogram={entry.logo?.monogram} name={entry.orgName} />
+          <OrgLogo slug={entry.logo?.slug} monogram={entry.logo?.monogram} wide={entry.logo?.wide} name={entry.orgName} />
           <span className="entry__text">
             <span className="entry__title">{entry.title}</span>
             <span className="muted-line">{entry.org}</span>

@@ -85,7 +85,7 @@ export const experience = [
   {
     role: 'Cloud Support Intern',
     company: 'Kenanga Investment Bank Berhad',
-    logo: { slug: 'kenanga', monogram: 'K' },
+    logo: { slug: 'kenanga', monogram: 'K', wide: true },
     kind: 'Internship',
     period: 'Mar 2026 – Jul 2026',
     points: [

@@ -2373,6 +2373,11 @@ a.contact-card:hover {
   height: 52px;
 }
 
+/* Wordmark-only logos need the full width of the tile */
+.org-logo--wide {
+  padding: 2px;
+}
+
 .org-logo--mono {
   padding: 0;
   background: linear-gradient(160deg, var(--red) 0%, var(--red-deep) 100%);
