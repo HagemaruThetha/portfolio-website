@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Mail, Menu, X } from 'lucide-react'
 import Dragons from './Dragons.jsx'
+import { TechIcon } from './TechIcon.jsx'
 import { profile } from '../data/cv.js'
 import { allPages, pages } from '../lib/site.js'
 
@@ -61,12 +62,18 @@ function Footer() {
         <div className="footer-cta">
           <div>
             <p className="footer-cta__title">Hiring for a cloud or infrastructure role?</p>
-            <p className="muted-line">Email is the fastest way to reach me</p>
+            <p className="muted-line">Email or LinkedIn are the fastest ways to reach me</p>
           </div>
-          <a className="btn btn--primary" href={`mailto:${profile.email}`}>
-            <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
-            Email me
-          </a>
+          <div className="footer-cta__actions">
+            <a className="btn btn--secondary" href={profile.linkedin} target="_blank" rel="noreferrer">
+              <TechIcon name="LinkedIn" />
+              LinkedIn
+            </a>
+            <a className="btn btn--primary" href={`mailto:${profile.email}`}>
+              <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
+              Email me
+            </a>
+          </div>
         </div>
         <div className="site-footer__bottom">
           <span>

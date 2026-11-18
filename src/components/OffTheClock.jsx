@@ -60,16 +60,12 @@ function MatchTicket() {
             <dd>{club.ground}</dd>
           </div>
           <div>
-            <dt>Address</dt>
-            <dd>{club.address}</dd>
-          </div>
-          <div>
             <dt>Supporter</dt>
             <dd>{profile.shortName}</dd>
           </div>
-          <div>
-            <dt>Watching from</dt>
-            <dd>{club.watchingFrom}</dd>
+          <div className="mticket__field--wide">
+            <dt>Address</dt>
+            <dd>{club.address}</dd>
           </div>
         </dl>
         <p className="mticket__note">{club.text}</p>

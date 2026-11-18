@@ -2,7 +2,7 @@ import { GraduationCap, Languages, User } from 'lucide-react'
 import OffTheClock from '../components/OffTheClock.jsx'
 import OrgLogo from '../components/OrgLogo.jsx'
 import { PageHeader, SectionTitle } from '../components/ui.jsx'
-import { education, languages, profile } from '../data/cv.js'
+import { education, experience, languages, profile } from '../data/cv.js'
 
 export default function About() {
   return (
@@ -11,7 +11,7 @@ export default function About() {
         tag="01"
         title="About"
         intro="Who I am, where I studied, the languages I speak and what I do off the clock"
-        meta={`${profile.role} · ${profile.location}`}
+        meta={`${profile.role} · ${experience[0].company}`}
       />
 
       <section className="band">
@@ -29,8 +29,12 @@ export default function About() {
                 <dd>{profile.focus.join(', ')}</dd>
               </div>
               <div>
-                <dt>Based in</dt>
-                <dd>{profile.location}</dd>
+                <dt>Find me on</dt>
+                <dd>
+                  <a className="inline-link" href={profile.linkedin} target="_blank" rel="noreferrer">
+                    LinkedIn
+                  </a>
+                </dd>
               </div>
             </dl>
           </div>

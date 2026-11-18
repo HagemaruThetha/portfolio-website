@@ -41,7 +41,7 @@ export default function Home() {
           <div className="hero__text">
             <p className="hero__role">
               <span className="status-dot" aria-hidden="true" />
-              {profile.role} · {profile.location}
+              {profile.role} · {experience[0].company}
             </p>
             <h1>
               {profile.firstNames} <span className="hero__surname">{profile.surname}</span>
