@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Briefcase, GraduationCap, Plus } from 'lucide-react'
+import JourneyRoad from '../components/JourneyRoad.jsx'
 import OrgLogo from '../components/OrgLogo.jsx'
 import { PageHeader, Points, SectionTitle, Stack } from '../components/ui.jsx'
 import { education, experience } from '../data/cv.js'
@@ -32,8 +33,8 @@ const entries = [
 const filters = ['All', 'Work', 'Internship', 'Education']
 
 const groups = [
-  { title: 'Professional', kinds: ['Work', 'Internship'], icon: Briefcase },
-  { title: 'Education', kinds: ['Education'], icon: GraduationCap },
+  { title: 'In Service', kinds: ['Work', 'Internship'], icon: Briefcase },
+  { title: 'Halls of Learning', kinds: ['Education'], icon: GraduationCap },
 ]
 
 const hasDetails = (entry) => entry.points.length > 0 || Boolean(entry.stack)
@@ -104,11 +105,18 @@ export default function Career() {
   return (
     <>
       <PageHeader
-        tag="02"
-        title="Career"
-        intro="Work, internships and education, newest first"
+        tag="II"
+        kicker="Career"
+        title="The Journey"
+        intro="From Jitra to the cloud: every hall I studied in and every house I served, newest first"
         meta={`${counts.Work} work roles · ${counts.Internship} internships · ${counts.Education} schools and universities`}
       />
+
+      <section className="band band--tight">
+        <div className="container">
+          <JourneyRoad />
+        </div>
+      </section>
 
       <section className="band band--tight">
         <div className="container">

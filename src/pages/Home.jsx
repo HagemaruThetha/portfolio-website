@@ -7,7 +7,8 @@ import {
   FolderGit2,
   GraduationCap,
   Layers,
-  Mail,
+  Bird,
+  Crown,
   Server,
   ShieldCheck,
   Wrench,
@@ -15,6 +16,7 @@ import {
 import photo1200 from '../assets/zharif-aws-1200.webp'
 import photo640 from '../assets/zharif-aws-640.webp'
 import OffTheClock from '../components/OffTheClock.jsx'
+import Sigil from '../components/Sigil.jsx'
 import OrgLogo from '../components/OrgLogo.jsx'
 import StackBoard from '../components/StackBoard.jsx'
 import { TechIcon } from '../components/TechIcon.jsx'
@@ -39,13 +41,18 @@ export default function Home() {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__text">
+            <p className="hero__house">House Zhafran · We Build in the Clouds</p>
+            <h1>
+              {profile.firstNames} <span className="hero__surname">{profile.surname}</span>
+            </h1>
+            <p className="hero__titles">
+              <Crown size={16} strokeWidth={1.5} aria-hidden="true" />
+              First of His Name · Keeper of the Cloud · Warden of the Server Racks
+            </p>
             <p className="hero__role">
               <span className="status-dot" aria-hidden="true" />
               {profile.role} · {experience[0].company}
             </p>
-            <h1>
-              {profile.firstNames} <span className="hero__surname">{profile.surname}</span>
-            </h1>
             <div className="hero__bio">
               {profile.bio.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
@@ -67,15 +74,16 @@ export default function Home() {
             </dl>
             <div className="hero__actions">
               <a className="btn btn--primary" href={`mailto:${profile.email}`}>
-                <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
-                Email me
+                <Bird size={16} strokeWidth={1.5} aria-hidden="true" />
+                Send a raven
               </a>
               <Link className="btn btn--secondary" to="/about">
-                More about me
+                Read my lineage
               </Link>
             </div>
           </div>
           <figure className="hero__photo">
+            <Sigil size={92} className="hero__sigil" />
             <img
               src={photo640}
               srcSet={`${photo640} 640w, ${photo1200} 1200w`}
@@ -108,14 +116,14 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="My stack" icon={Layers} />
+          <SectionTitle title="Weapons of Choice" icon={Layers} />
           <StackBoard rows={boardRows} />
           <div className="board__footer">
             <p className="muted-line">
               {toolCount} tools across {stackLayers.length} layers, from AWS down to the server rack
             </p>
             <Link className="btn btn--secondary" to="/skills">
-              See the full stack
+              Enter the armoury
               <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
             </Link>
           </div>
@@ -124,7 +132,7 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Recent roles" icon={Briefcase} link={{ to: '/career', label: 'Full career' }} />
+          <SectionTitle title="Recent Service" icon={Briefcase} link={{ to: '/career', label: 'The whole journey' }} />
           <ol className="role-list">
             {experience.slice(0, 3).map((job) => (
               <li key={job.role + job.company}>
@@ -150,7 +158,7 @@ export default function Home() {
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Selected projects" icon={FolderGit2} link={{ to: '/projects', label: 'All projects' }} />
+          <SectionTitle title="Great Deeds" icon={FolderGit2} link={{ to: '/projects', label: 'All deeds' }} />
           <div className="project-grid">
             {projects.map((p) => (
               <Link key={p.id} to={`/projects#${p.id}`} className="card project-tile">
@@ -172,11 +180,11 @@ export default function Home() {
         </div>
       </section>
 
-      <OffTheClock link={{ to: '/about', label: 'More about me' }} />
+      <OffTheClock link={{ to: '/about', label: 'Read my lineage' }} />
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="What I work on" icon={Wrench} link={{ to: '/skills', label: 'All skills' }} />
+          <SectionTitle title="Domains I Hold" icon={Wrench} link={{ to: '/skills', label: 'Visit the armoury' }} />
           <div className="focus-grid">
             {focusAreas.map((f, i) => {
               const Icon = focusIcons[i]

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { Mail, Menu, X } from 'lucide-react'
+import { Bird, Menu, X } from 'lucide-react'
 import Dragons from './Dragons.jsx'
+import Sigil from './Sigil.jsx'
 import { TechIcon } from './TechIcon.jsx'
 import { profile } from '../data/cv.js'
 import { allPages, pages } from '../lib/site.js'
@@ -19,7 +20,8 @@ function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <Link className="wordmark" to="/">
-          {profile.shortName}
+          <Sigil size={26} ribbon={false} />
+          <span>House Zhafran</span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
           {pages.map((p) => (
@@ -29,7 +31,8 @@ function Header() {
           ))}
         </nav>
         <Link className="btn btn--small btn--secondary site-header__cta" to="/contact">
-          Contact
+          <Bird size={14} strokeWidth={1.5} aria-hidden="true" />
+          Send a Raven
         </Link>
         <button
           className="menu-button"
@@ -60,9 +63,12 @@ function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-cta">
-          <div>
-            <p className="footer-cta__title">Hiring for a cloud or infrastructure role?</p>
-            <p className="muted-line">Email or LinkedIn are the fastest ways to reach me</p>
+          <div className="footer-cta__lead">
+            <Sigil size={72} />
+            <div>
+              <p className="footer-cta__title">Seeking a sworn sword for the cloud?</p>
+              <p className="muted-line">Send a raven by email or LinkedIn and I will answer</p>
+            </div>
           </div>
           <div className="footer-cta__actions">
             <a className="btn btn--secondary" href={profile.linkedin} target="_blank" rel="noreferrer">
@@ -70,14 +76,14 @@ function Footer() {
               LinkedIn
             </a>
             <a className="btn btn--primary" href={`mailto:${profile.email}`}>
-              <Mail size={16} strokeWidth={1.5} aria-hidden="true" />
-              Email me
+              <Bird size={16} strokeWidth={1.5} aria-hidden="true" />
+              Send a raven
             </a>
           </div>
         </div>
         <div className="site-footer__bottom">
           <span>
-            {profile.name} · <span className="footer-chant">Glory, glory, Man United</span>
+            {profile.name}, of House Zhafran · <span className="footer-chant">Glory, glory, Man United</span>
           </span>
           <nav className="footer-nav" aria-label="Footer">
             {allPages.map((p) => (

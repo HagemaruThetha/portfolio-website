@@ -1,36 +1,40 @@
 /*
-  Design tokens follow the unslop method by Damir Sokolovsky (@heydamir), CC BY 4.0.
-  Light theme on a warm white with the red palette (#830000, #BC0202, #FF0000) and black ink,
-  4px spacing grid, one easing curve.
+  House Zhafran theme: dark stone and iron, aged parchment, old gold and the reds
+  (#830000, #BC0202, #FF0000). Cinzel for carved headings, EB Garamond for text.
+  Built on the unslop method by Damir Sokolovsky (@heydamir), CC BY 4.0.
 */
 
 :root {
-  /* Neutrals: warm white with a faint red tint, near-black ink */
-  --bg-deep: #f6eeec;
-  --bg: #fcf8f7;
-  --card: #ffffff;
-  --raised: #f5ebe9;
-  --line: rgba(40, 10, 10, 0.09);
-  --line-strong: rgba(40, 10, 10, 0.16);
-  --text: #1a0f0f;
-  --text-2: #554446;
-  --muted: #776568;
+  /* Neutrals: dark stone and leather, parchment ink */
+  --bg-deep: #080706;
+  --bg: #100d0b;
+  --card: #1a1512;
+  --raised: #251d18;
+  --line: rgba(201, 162, 74, 0.14);
+  --line-strong: rgba(201, 162, 74, 0.28);
+  --text: #efe4cc;
+  --text-2: #c9b998;
+  --muted: #9c8c72;
 
-  /* Reds from the palette */
+  /* Reds from the palette, and old gold */
   --red-deep: #830000;
   --red: #bc0202;
   --red-bright: #ff0000;
+  --gold: #c9a24a;
+  --gold-bright: #f1d27a;
+  --gold-deep: #8a6a24;
 
   --accent: var(--red);
-  --accent-ink: #b00202;
-  --on-accent: #ffffff;
+  --accent-ink: #e2b85c;
+  --on-accent: #fff4dc;
 
   /* Diagram tiers, the one place with several hues */
-  --tier-public: #c40a0a;
-  --tier-private: #1f8a7a;
-  --tier-data: #2f74b8;
+  --tier-public: #e04a4a;
+  --tier-private: #43b8a6;
+  --tier-data: #5ea4e6;
 
-  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --sans: 'EB Garamond', Georgia, serif;
+  --display: 'Cinzel', 'Trajan Pro', Georgia, serif;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -44,10 +48,10 @@
   --gutter: 32px;
   --header-h: 64px;
 
-  color-scheme: light;
+  color-scheme: dark;
   font-family: var(--sans);
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 17px;
+  line-height: 26px;
   color: var(--text-2);
   background: var(--bg);
   font-synthesis: none;
@@ -2609,5 +2613,629 @@ main,
 @media (max-width: 760px) {
   .contact-cards--two {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   House Zhafran: the full theme layer
+   ========================================================== */
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201, 162, 74, 0.08), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(131, 0, 0, 0.18), transparent 70%),
+    var(--bg);
+}
+
+/* Carved headings */
+h1,
+h2,
+h3,
+.wordmark,
+.site-nav a,
+.mobile-nav a,
+.btn,
+.chip,
+.page-header__kicker,
+.hero__house,
+.footer-cta__title,
+.footer-nav a,
+.text-link,
+.project-tile__title,
+.entry__title,
+.role-link__title,
+.road__year,
+.win__result,
+.stats dd,
+.mticket__club {
+  font-family: var(--display);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Garamond reads smaller than Plex, so lift body sizes */
+.muted-line {
+  font-size: 15.5px;
+  line-height: 22px;
+}
+
+.points li {
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.points li::before {
+  top: 12px;
+  width: 8px;
+  background: var(--gold);
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 30px;
+}
+
+/* Header */
+.site-header {
+  background: color-mix(in srgb, var(--bg-deep) 88%, transparent);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-bright);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.wordmark .sigil {
+  height: 30px;
+  width: auto;
+}
+
+.site-nav a,
+.mobile-nav a {
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+}
+
+.site-nav a.active,
+.mobile-nav a.active {
+  color: var(--gold-bright);
+  background: transparent;
+  box-shadow: inset 0 -2px 0 var(--gold);
+  border-radius: 0;
+}
+
+/* Buttons: red wax and gold leaf */
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.btn--primary {
+  background: radial-gradient(circle at 30% 25%, #d10a0a, #830000 75%);
+  color: var(--gold-bright);
+  border-color: var(--gold-deep);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 160, 0.25),
+    0 6px 18px -8px rgba(188, 2, 2, 0.8);
+}
+
+.btn--primary:hover {
+  background: radial-gradient(circle at 30% 25%, #e01414, #9a0000 75%);
+}
+
+.btn--secondary {
+  background: linear-gradient(180deg, #221a15, #16110e);
+  border-color: var(--gold-deep);
+  color: var(--gold-bright);
+}
+
+.btn--secondary:hover {
+  background: #2a201a;
+  border-color: var(--gold);
+}
+
+.text-link {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+/* Section titles with a gold rule */
+.section-title {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(201, 162, 74, 0.25) 60%, transparent);
+}
+
+.split .section-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.split .section-title::after {
+  display: none;
+}
+
+.section-title h2 {
+  font-size: 22px;
+  color: var(--gold-bright);
+}
+
+.section-title__icon {
+  color: var(--gold);
+}
+
+/* Page header: a wax seal with the chapter numeral */
+.page-header {
+  background:
+    radial-gradient(ellipse 50% 80% at 0% 0%, rgba(131, 0, 0, 0.25), transparent 70%),
+    color-mix(in srgb, var(--bg-deep) 88%, transparent);
+  border-bottom: 1px solid var(--line-strong);
+  box-shadow: inset 0 -4px 0 -3px var(--gold-deep);
+}
+
+.page-header__seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 56px;
+  padding: 0 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d10a0a, #830000 70%);
+  box-shadow:
+    0 0 0 3px #6e0000,
+    0 0 0 5px rgba(131, 0, 0, 0.45),
+    inset 0 0 0 6px rgba(0, 0, 0, 0.18),
+    0 6px 14px -4px rgba(0, 0, 0, 0.7);
+  color: var(--gold-bright);
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.page-header__kicker {
+  margin-top: 20px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  margin-top: 6px;
+  color: var(--text);
+}
+
+/* Cards: dark leather with a gold hairline */
+.card,
+.layers,
+.langs > div {
+  background: linear-gradient(180deg, #1e1814, #161210);
+  border-color: var(--line-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(241, 210, 122, 0.06),
+    0 14px 30px -20px #000;
+}
+
+.project-tile:hover,
+a.contact-card:hover {
+  background: linear-gradient(180deg, #251d18, #1a1512);
+  border-color: var(--gold);
+}
+
+.project-tile__title {
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.entry__title,
+.role-link__title {
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+.entry__kind,
+.role-link__kind {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--gold);
+}
+
+/* Hero: candlelight, a framed portrait and the sigil */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20% 40% 20% -20%;
+  background: radial-gradient(circle, rgba(241, 190, 90, 0.16), transparent 60%);
+  pointer-events: none;
+  animation: candle 5s ease-in-out infinite;
+}
+
+@keyframes candle {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  20% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.7;
+  }
+  55% {
+    opacity: 0.95;
+  }
+  75% {
+    opacity: 0.78;
+  }
+}
+
+.hero__house {
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 54px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  max-width: 14em;
+}
+
+.hero__surname {
+  color: var(--gold-bright);
+}
+
+.hero__titles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--text-2);
+  font-style: italic;
+  font-size: 18px;
+}
+
+.hero__titles svg {
+  color: var(--gold);
+  flex: none;
+}
+
+.hero__role {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.hero__bio p {
+  font-size: 18.5px;
+  line-height: 30px;
+}
+
+.hero__bio p:first-child {
+  font-size: 19.5px;
+}
+
+.hero__facts dt {
+  color: var(--gold);
+}
+
+.hero__photo {
+  position: relative;
+}
+
+.hero__photo::after {
+  display: none;
+}
+
+.hero__photo img {
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 8px #0b0908,
+    0 0 0 10px var(--gold-deep),
+    0 30px 60px -24px #000;
+}
+
+.hero__sigil {
+  position: absolute;
+  left: -34px;
+  bottom: -40px;
+  z-index: 1;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.7));
+}
+
+/* Stats strip and the stack board get gold trim */
+.band--red {
+  background:
+    radial-gradient(ellipse 60% 120% at 50% 0%, rgba(188, 2, 2, 0.5), transparent 70%),
+    var(--red-deep);
+  border-top: 2px solid var(--gold-deep);
+  border-bottom: 2px solid var(--gold-deep);
+}
+
+.band--red .stats dd {
+  color: var(--gold-bright);
+}
+
+.board {
+  border-top-color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.layer__tag {
+  color: var(--gold-bright);
+  background: rgba(201, 162, 74, 0.16);
+  font-family: var(--display);
+}
+
+.tool {
+  background: #120e0c;
+}
+
+/* Symbols and logo tiles */
+.tech-icon--symbol,
+.contact-card__icon {
+  background: rgba(201, 162, 74, 0.14);
+  color: var(--gold-bright);
+}
+
+.tech-icon--logo,
+.org-logo {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--gold-deep);
+}
+
+.org-logo--mono {
+  box-shadow: 0 0 0 1px var(--gold-deep);
+}
+
+.chip {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  background: #16110e;
+}
+
+.chip[aria-pressed='true'] {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+.focus {
+  border-top-color: var(--gold-deep);
+}
+
+.focus__head,
+.with-symbol svg {
+  color: var(--gold);
+}
+
+.win__result.is-key {
+  color: var(--gold-bright);
+}
+
+/* The Journey: a winding road with a waystone for each stop */
+.road {
+  position: relative;
+  margin: 0;
+}
+
+.road__path {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 220px;
+  overflow: visible;
+}
+
+.road__path path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.5;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.8;
+}
+
+.road__stops {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  min-height: 252px;
+}
+
+.road__stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 40px 4px 0;
+  text-align: center;
+}
+
+.road__stop.is-low {
+  padding-top: 120px;
+}
+
+.road__stone {
+  display: inline-flex;
+  padding: 4px;
+  margin-bottom: 8px;
+  border-radius: 14px;
+  background: #0b0908;
+  box-shadow: 0 0 0 2px var(--gold), 0 8px 18px -6px #000;
+}
+
+.road__stop.is-now .road__stone {
+  box-shadow:
+    0 0 0 2px var(--gold-bright),
+    0 0 22px 4px rgba(209, 10, 10, 0.55);
+}
+
+.road__year {
+  color: var(--gold-bright);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.road__label {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.road__kind {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line-strong);
+  box-shadow: inset 0 3px 0 -2px var(--gold-deep);
+}
+
+.footer-cta__lead {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-cta__title {
+  color: var(--gold-bright);
+  font-size: 22px;
+}
+
+.footer-chant {
+  color: #ff5a4a;
+}
+
+/* Dragons glow like embers against the stone */
+.dragon {
+  color: #d10a0a;
+}
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero__sigil {
+    left: auto;
+    right: -12px;
+    bottom: -28px;
+  }
+
+  .road__label {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero__titles {
+    font-size: 16px;
+    align-items: flex-start;
+  }
+
+  .hero__titles svg {
+    margin-top: 4px;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .hero__sigil {
+    width: 72px;
+    height: auto;
+    right: -6px;
+  }
+
+  /* The road becomes a path down the page */
+  .road__path {
+    display: none;
+  }
+
+  .road__stops {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 16px;
+    padding-left: 4px;
+    border-left: 2px dashed var(--gold-deep);
+    margin-left: 26px;
+  }
+
+  .road__stop,
+  .road__stop.is-low {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 14px;
+    align-items: center;
+    padding: 0;
+    margin-left: -30px;
+    text-align: left;
+  }
+
+  .road__stone {
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+
+  .road__year,
+  .road__label,
+  .road__kind {
+    grid-column: 2;
+  }
+
+  .footer-cta__lead {
+    align-items: flex-start;
+  }
+
+  .footer-cta__lead .sigil {
+    width: 56px;
+    height: auto;
+    flex: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
   }
 }

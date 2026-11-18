@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight, Bird } from 'lucide-react'
 import { TechIcon } from '../components/TechIcon.jsx'
 import { PageHeader } from '../components/ui.jsx'
 import { profile } from '../data/cv.js'
@@ -7,9 +7,10 @@ export default function Contact() {
   return (
     <>
       <PageHeader
-        tag="05"
-        title="Contact"
-        intro="Open to cloud engineering and infrastructure roles. Email or LinkedIn are the best ways to reach me."
+        tag="V"
+        kicker="Contact"
+        title="Send a Raven"
+        intro="Open to cloud engineering and infrastructure roles. My ravens fly by email and LinkedIn."
       />
 
       <section className="band band--tight">
@@ -19,10 +20,10 @@ export default function Contact() {
               <a className="card contact-card" href={`mailto:${profile.email}`}>
                 <span className="contact-card__head">
                   <span className="contact-card__icon">
-                    <Mail size={18} strokeWidth={1.5} aria-hidden="true" />
+                    <Bird size={18} strokeWidth={1.5} aria-hidden="true" />
                   </span>
                 </span>
-                <span className="muted-line">Email</span>
+                <span className="muted-line">Raven by email</span>
                 <span className="contact-card__value">{profile.email}</span>
               </a>
             </li>
@@ -37,7 +38,7 @@ export default function Contact() {
               </a>
             </li>
           </ul>
-          <p className="muted-line contact-note">References available on request</p>
+          <p className="muted-line contact-note">References available on request, sealed and sent by raven</p>
         </div>
       </section>
     </>

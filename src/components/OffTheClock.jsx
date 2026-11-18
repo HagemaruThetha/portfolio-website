@@ -93,14 +93,14 @@ export default function OffTheClock({ link }) {
   return (
     <section className="band">
       <div className="container">
-        <SectionTitle title="Off the clock" icon={Coffee} link={link} />
+        <SectionTitle title="When the Watch Ends" icon={Coffee} link={link} />
         <div className="personal-grid">
           <MatchTicket />
           <div className="personal-side">
             <article className="card personal-card">
               <span className="project__area with-symbol">
                 <Flag size={14} strokeWidth={1.5} aria-hidden="true" />
-                Competitions
+                Tourneys
               </span>
               <h3>{ctf.title}</h3>
               <span className="personal-card__figure">{ctf.figure}</span>

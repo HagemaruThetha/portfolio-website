@@ -18,9 +18,10 @@ export default function Projects() {
   return (
     <>
       <PageHeader
-        tag="03"
-        title="Projects"
-        intro="Cloud architecture, network security and data analysis projects"
+        tag="III"
+        kicker="Projects"
+        title="Deeds"
+        intro="Works of cloud architecture, network security and data analysis"
         meta={`${projects.length} projects · 1 cloud architecture · 2 security analysis`}
       />
 

@@ -8,15 +8,16 @@ export default function About() {
   return (
     <>
       <PageHeader
-        tag="01"
-        title="About"
-        intro="Who I am, where I studied, the languages I speak and what I do off the clock"
+        tag="I"
+        kicker="About me"
+        title="Lineage"
+        intro="Who I am, the halls where I studied, the tongues I speak and what I do when the watch ends"
         meta={`${profile.role} · ${experience[0].company}`}
       />
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Summary" icon={User} />
+          <SectionTitle title="The Tale" icon={User} />
           <div className="split__body">
             {profile.summary.map((p) => (
               <p key={p.slice(0, 24)} className="lead">
@@ -43,7 +44,7 @@ export default function About() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Education" icon={GraduationCap} count={education.length} />
+          <SectionTitle title="Halls of Learning" icon={GraduationCap} count={education.length} />
           <ol className="split__body rows">
             {education.map((e) => (
               <li key={e.title} className="row">
@@ -70,7 +71,7 @@ export default function About() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Languages" icon={Languages} count={languages.length} />
+          <SectionTitle title="Tongues Spoken" icon={Languages} count={languages.length} />
           <dl className="split__body langs">
             {languages.map((l) => (
               <div key={l.name}>

@@ -11,13 +11,16 @@ export function CableTag({ children }) {
   )
 }
 
-export function PageHeader({ tag, title, intro, meta, action }) {
+export function PageHeader({ tag, kicker, title, intro, meta, action }) {
   usePageTitle(title)
   return (
     <header className="page-header">
       <div className="container page-header__inner">
         <div>
-          <CableTag>{tag}</CableTag>
+          <span className="page-header__seal" aria-hidden="true">
+            {tag}
+          </span>
+          {kicker && <p className="page-header__kicker">{kicker}</p>}
           <h1>{title}</h1>
           {intro && <p className="page-header__intro">{intro}</p>}
           {meta && <p className="page-header__meta mono">{meta}</p>}

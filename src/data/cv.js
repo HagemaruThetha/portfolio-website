@@ -24,6 +24,7 @@ export const education = [
   {
     title: 'Bachelor of Computer Science (Hons.) Computer Networks',
     school: 'Universiti Teknologi MARA (UiTM), Arau, Perlis',
+    road: { year: '2024', label: 'UiTM Arau, degree' },
     logo: { slug: 'uitm', monogram: 'UiTM' },
     period: '2024 – 2026',
     cgpa: '3.39',
@@ -31,6 +32,7 @@ export const education = [
   {
     title: 'Diploma in Computer Science',
     school: 'Universiti Teknologi MARA (UiTM), Merbok, Kedah',
+    road: { year: '2021', label: 'UiTM Merbok, diploma' },
     logo: { slug: 'uitm', monogram: 'UiTM' },
     period: '2021 – 2024',
     cgpa: '3.34',
@@ -38,12 +40,14 @@ export const education = [
   {
     title: 'Royal Military College (RMC)',
     school: 'Maktab Tentera Diraja, Sungai Besi, Kuala Lumpur',
+    road: { year: '2019', label: 'Royal Military College' },
     logo: { slug: 'rmc', monogram: 'RMC' },
     period: '2019 – 2020',
   },
   {
     title: 'SMS Sultan Abdul Halim (Jenan)',
     school: 'Sekolah Menengah Sains Sultan Abdul Halim, Jitra, Kedah',
+    road: { year: '2016', label: 'SMS Sultan Abdul Halim' },
     logo: { slug: 'smsah', monogram: 'SMS' },
     period: '2016 – 2018',
   },
@@ -54,6 +58,7 @@ export const experience = [
     role: 'Junior Cloud Engineer',
     company: 'Stampede Solutions Sdn. Bhd.',
     logo: { slug: 'stampede', monogram: 'SS' },
+    road: { year: '2026', label: 'Stampede Solutions' },
     period: 'Oct 2026 – Present',
     current: true,
     kind: 'Work',
@@ -70,6 +75,7 @@ export const experience = [
     role: 'Data Center Engineer',
     company: 'Exabytes Sdn. Bhd.',
     logo: { slug: 'exabytes', monogram: 'EX' },
+    road: { year: '2026', label: 'Exabytes' },
     note: 'KYOUTH Development Programme',
     kind: 'Work',
     period: 'Sep 2026 – Oct 2026',
@@ -85,6 +91,7 @@ export const experience = [
     role: 'Cloud Support Intern',
     company: 'Kenanga Investment Bank Berhad',
     logo: { slug: 'kenanga', monogram: 'K', wide: true },
+    road: { year: '2026', label: 'Kenanga' },
     kind: 'Internship',
     period: 'Mar 2026 – Jul 2026',
     points: [
@@ -101,6 +108,7 @@ export const experience = [
     role: 'Network Technician Intern',
     company: 'Nurkamal Network Sdn. Bhd.',
     logo: { slug: 'nurkamal', monogram: 'NN' },
+    road: { year: '2023', label: 'Nurkamal Network' },
     kind: 'Internship',
     period: 'Sep 2023 – Mar 2024',
     points: [
@@ -249,7 +257,7 @@ export const personal = {
     chant: 'Glory, glory, Man United',
   },
   ctf: {
-    title: 'Capture the flag',
+    title: 'Capture the flag tourneys',
     figure: '2nd place',
     text: 'At UUM CTF in April 2025, and I competed with a team at Cyber Quest CTF in November 2025',
   },

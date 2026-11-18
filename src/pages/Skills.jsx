@@ -8,15 +8,16 @@ export default function Skills() {
   return (
     <>
       <PageHeader
-        tag="04"
-        title="Skills"
-        intro="Tools I use, courses I completed and competitions I entered"
+        tag="IV"
+        kicker="Skills"
+        title="The Armoury"
+        intro="The tools I wield, the seals of mastery I earned and the tourneys I entered"
         meta={`${skills.length} skill areas · ${certifications.length} certifications · ${accomplishments.length} CTF competitions`}
       />
 
       <section className="band">
         <div className="container">
-          <SectionTitle title="Full stack" icon={Layers} />
+          <SectionTitle title="Arms by Rank" icon={Layers} />
           <p className="band__intro">Every tool I have used, grouped from the cloud at the top down to network hardware, with where I used it</p>
           <StackLayers />
         </div>
@@ -24,7 +25,7 @@ export default function Skills() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Skills" icon={ListChecks} />
+          <SectionTitle title="Crafts and Trades" icon={ListChecks} />
           <div className="split__body skill-groups">
             {skills.map((g) => (
               <div key={g.group} className="skill-group">
@@ -45,7 +46,7 @@ export default function Skills() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Certifications" icon={BadgeCheck} count={certifications.length} />
+          <SectionTitle title="Seals of Mastery" icon={BadgeCheck} count={certifications.length} />
           <ol className="split__body rows">
             {certifications.map((c) => (
               <li key={c.title} className="row">
@@ -67,7 +68,7 @@ export default function Skills() {
 
       <section className="band">
         <div className="container split">
-          <SectionTitle title="Accomplishments" icon={Award} count={accomplishments.length} />
+          <SectionTitle title="Tourney Honours" icon={Award} count={accomplishments.length} />
           <div className="split__body wins">
             {accomplishments.map((a) => (
               <article key={a.title} className="card win">
